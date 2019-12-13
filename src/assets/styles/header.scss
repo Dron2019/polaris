@@ -1,0 +1,91 @@
+.logo {
+    min-width: 115px;
+}
+
+.menu-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: $mc;
+    font-family: $default-font;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+}
+
+.menu-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-transform: uppercase;
+    font-size: 12px;
+    &__item {
+        margin: 0 10px;
+        cursor: pointer;
+    }
+    & a {
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+.tel-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 22px;
+    padding-right: 20px;
+    border-right: 1px solid $mc5;
+    text-align: center;
+    cursor: pointer;
+    &:before {
+        position: absolute;
+        top: calc((24px - 16px) / 2);
+        left: 9px;
+        height: 13px;
+        width: 13px;
+        content: url(../images/common/tel-icon.svg);
+    }
+    &__number {
+        font-size: 16px;
+        line-height: 24px;
+        color: #ffffff;
+        text-decoration: none;
+        font-family: $default-font2;
+    }
+    &__title {
+        text-transform: lowercase;
+        border-bottom: 1px dashed $mc5;
+    }
+}
+
+.lang-block {
+    position: relative;
+    margin-left: 20px;
+    padding-right: 12px;
+    cursor: pointer;
+    transition: all .5s;
+    &:after {
+        content: url(../images/common/birdy.svg);
+        position: absolute;
+        right: 0;
+        top: calc(50% - 9px);
+    }
+    &:hover:after {
+        transition: all .5s;
+        transform: rotate(180deg);
+    }
+    &:hover .inactive {
+        transition: all .5s;
+        display: block;
+    }
+    &:hover &__item {
+        text-transform: uppercase;
+    }
+    .inactive {
+        display: none;
+    }
+}

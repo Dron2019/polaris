@@ -12,6 +12,7 @@ block scripts
 	script(src='./assets/scripts/callback-form.js') 
 	script(src='./assets/scripts/simpleParalax.js') 
 	script(src='./assets/scripts/slider.js')
+	script(src='./assets/scripts/map.js')
 	
 block content		
 	section(class="main-screen-container")
@@ -60,8 +61,10 @@ block content
 			.about-project-text__title  Зіркове життя майбутнього
 			.about-project-text__text 	POLARIS стане яскравою зіркою та практичним житловим рішенням у затишній частині столичної Оболоні. Комплекс відкриє власникам квартир новий рівень сучасних можливостей за принципом – «живи-працюй-релаксуй».
 		.navigation-box 
-			div(class="navigation-box__item  next") &#708;
-			div(class="navigation-box__item previous") &#709;
+			div(class="navigation-box__item  next")
+				img(src="./assets/images/common/birdy-black.svg")
+			div(class="navigation-box__item previous") 
+				img(src="./assets/images/common/birdy-black.svg")
 		.about-project-image
 			img(src="./assets/images/about/image1.png")
 		.about-project-more 
@@ -249,8 +252,10 @@ block content
 							li.room-type Лоджія
 					img(src="./assets/images/plans/flat.png")
 			.navigation-box 
-				div(class="navigation-box__item  previous") &#60;
-				div(class="navigation-box__item next") &#62;
+				div(class="navigation-box__item  previous")
+					img(src="./assets/images/common/birdy-black.svg")
+				div(class="navigation-box__item next") 
+					img(src="./assets/images/common/birdy-black.svg")
 			//- .plans-dots 
 			//- 	button(type="button", value="" class="single-dot")
 			//- 	button(type="button", value="" class="single-dot")
@@ -264,6 +269,9 @@ block content
 			.block-img1
 				.block-title Children
 				img(class="thumbnail" src="./assets/images/infrastructure/kids1.png")
+				img(class="block-img-decor decor1 read-more-block__icon" src="./assets/images/common/yellow-star.svg" alt="read-more")
+				img(class="block-img-decor decor2 read-more-block__icon" src="./assets/images/common/yellow-star.svg" alt="read-more")
+				img(class="block-img-decor decor3 read-more-block__icon" src="./assets/images/common/yellow-star.svg" alt="read-more")
 			.block-text
 				.block-text__title Дитячий 
 					span.yellow садочок 
@@ -308,6 +316,9 @@ block content
 			.block-img1
 				.block-title sports
 				img(class="thumbnail"  data-tilt src="./assets/images/infrastructure/sport.png")
+				img(class="block-img-decor decor1 read-more-block__icon" src="./assets/images/common/yellow-star.svg" alt="read-more")
+				img(class="block-img-decor decor2 read-more-block__icon" src="./assets/images/common/yellow-star.svg" alt="read-more")
+				img(class="block-img-decor decor3 read-more-block__icon" src="./assets/images/common/yellow-star.svg" alt="read-more")
 			.block-text
 				.block-text__title Свій
 					span.yellow  спортклуб 
@@ -369,8 +380,8 @@ block content
 				.title E-mail
 				.description 
 					a(href="mailto:info@polaris.com.ua") info@polaris.com.ua
-	.map
-		img(src="./assets/images/contacts/map.png")
+	.map#map
+		//- img(src="./assets/images/contacts/map.png")
 	.map-popup 
 		img(src="./assets/images/logo1.svg")
 		img(class="close" src="./assets/images/contacts/close-icon.svg")
@@ -378,6 +389,13 @@ block content
 
 block footer
 	footer.footer
+		script.
+			function func() {
+			var script = document.createElement('script');
+			script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCBqnmzNAzHojSwaOiHXbpTETnKMQgnsos&callback=initMap';
+			document.getElementsByTagName('head')[0].appendChild(script);
+			}
+			setTimeout(func, 4000);
 		include ../includes/footer.pug
 block header
 	header.header

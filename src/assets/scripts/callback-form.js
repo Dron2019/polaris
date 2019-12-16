@@ -2,6 +2,8 @@ let popupForm = () => {
     let container = document.querySelectorAll('.popup-container');
     container[0].querySelector('.close').addEventListener('click', () => {
         container[0].style.visibility = 'hidden';
+        document.querySelector('.contact-text-block').insertAdjacentElement('afterEnd', document.querySelector('form'));
+
         container[0].querySelector('.popup-content').innerHTML = ''
     })
     container[0].querySelector('.popup-content').appendChild(document.querySelector('form'));

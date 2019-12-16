@@ -36,8 +36,11 @@ let slide = (slides, arrows) => {
 
     function switchText(elem, className, datasetName) {
         elem.classList.add(className);
-        elem.addEventListener('animationend', function() {
+        setTimeout(() => {
             elem.setAttribute('src', `./assets/images/about/${slides[counter].dataset.img}`);
+        }, 400);
+        elem.addEventListener('animationend', function() {
+
             elem.innerHTML = slides[counter].dataset[datasetName];
             elem.classList.remove(className);
         });

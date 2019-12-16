@@ -1,13 +1,13 @@
-.container {
-    overflow-x: hidden;
-}
-
+// .container {
+//     overflow: hidden;
+// }
 .main-screen-container {
     position: relative;
     overflow: hidden;
 }
 
 .main-screen-content {
+    height: calc(100vh - 100px);
     @include to(768px) {
         height: calc(90vh - 100px) !important;
     }
@@ -190,6 +190,7 @@
         font-family: $default-font2;
         font-size: 40px;
         line-height: 55px;
+        word-break: break-word;
         @include to(768px) {
             font-size: 28px;
             line-height: 42px;
@@ -285,6 +286,11 @@
         border: 1px solid $mc5;
         border-radius: 50%;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+    .previous {
+        transform: rotate(180deg);
     }
 }
 
@@ -295,6 +301,8 @@
     img {
         width: auto;
         height: 100%;
+        object-fit: cover;
+        object-position: 0 0;
         @include to(768px) {
             object-fit: cover;
             object-position: 0 0;
@@ -567,6 +575,13 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
+        &__item {
+            height: 42px;
+            transform: rotate(90deg);
+        }
+        .previous {
+            transform: rotate(-90DEG);
+        }
     }
     .slider-js {
         width: 65%;
@@ -687,6 +702,23 @@ li.slick-active button {
     }
     .block-img1 {
         text-align: right;
+        position: relative;
+    }
+    .block-img-decor {
+        position: absolute;
+        z-index: 23;
+        width: 50px;
+        height: 50px;
+        right: -25px;
+    }
+    .decor1 {
+        top: 80%;
+    }
+    .decor2 {
+        top: 73%;
+    }
+    .decor3 {
+        top: 66%;
     }
 }
 
@@ -1037,6 +1069,12 @@ li.slick-active button {
 
 .map {
     margin-top: 70px;
+    height: 500px;
+}
+
+.gm-style-iw,
+.gm-style-iw-c {
+    background: $mc;
 }
 
 .marker {

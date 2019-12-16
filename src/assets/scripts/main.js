@@ -4,7 +4,7 @@ Then I use this technique with canvas blend modes.
 */
 
 window.onload = function() {
-    // changeMainImages();
+
 
     var loading = document.getElementById("loading");
     loading.classList.add("loading-done");
@@ -54,6 +54,7 @@ class DXslider {
     }
 
     init() {
+        changeMainImages();
         this.settingStyle();
         this.settingCanvas();
 
@@ -94,12 +95,13 @@ class DXslider {
         this.imagesWidth = this.images.offsetWidth;
         this.width = this.lightenImages[0].width;
         // this.height = this.lightenImages[0].height;
-        this.height = 2000;
+        this.height = window.screen.height;
         this.dpi = this.width / this.imagesWidth;
 
         //this.images.style.height = this.canvasBox.style.height = this.imagesWidth * this.height / this.width + "px";
-        this.images.style.height = this.canvasBox.style.height = this.imagesWidth * this.height / this.width + "px";
-        document.querySelectorAll('.main-screen-container')[0].style.height = this.canvasBox.style.height = this.imagesWidth * this.height / this.width + "px";
+        this.images.style.height = this.canvasBox.style.height = window.screen.height + 'px';
+        // document.querySelectorAll('.main-screen-container')[0].style.height = this.canvasBox.style.height = this.imagesWidth * this.height / this.width + "px";
+        document.querySelectorAll('.main-screen-container')[0].style.height = window.screen.height;
         this.preButton.classList.add("after-loading");
         this.nextButton.classList.add("after-loading");
     }
@@ -114,7 +116,8 @@ class DXslider {
             canvas.width = this.width;
             canvas.height = this.height;
             canvas.style.width = this.imagesWidth + "px";
-            canvas.style.height = this.imagesWidth * this.height / this.width + "px";
+            // canvas.style.height = this.imagesWidth * this.height / this.width + "px";
+            canvas.style.height = window.screen.height + 'px';
 
             //add images(lighten and normal) into canvasArray
             n = i % (len / 2);

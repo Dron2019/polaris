@@ -1,5 +1,8 @@
 .logo {
     min-width: 115px;
+    @include to(768px) {
+        margin-right: auto;
+    }
 }
 
 .menu-wrapper {
@@ -11,6 +14,21 @@
     font-family: $default-font;
     letter-spacing: 0.1em;
     color: #ffffff;
+    @include to(768px) {
+        justify-content: flex-end;
+        padding: 0 22px;
+    }
+}
+
+.menu-button {
+    @include from(769px) {
+        display: none;
+    }
+    margin-left: 40px;
+    & img {
+        width: 28px;
+        height: 16px;
+    }
 }
 
 .menu-list {
@@ -28,6 +46,9 @@
     & a {
         text-decoration: none;
         color: #fff;
+    }
+    @include to(768px) {
+        display: none;
     }
 }
 

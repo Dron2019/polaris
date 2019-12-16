@@ -4,6 +4,7 @@ Then I use this technique with canvas blend modes.
 */
 
 window.onload = function() {
+    // changeMainImages();
 
     var loading = document.getElementById("loading");
     loading.classList.add("loading-done");
@@ -16,13 +17,15 @@ window.onload = function() {
         easing: easingInOutQuad
     }
 
+
     var slider = new DXslider(property);
+    console.log(slider);
 
     slider.init();
     document.querySelectorAll('.time-block__item')[0].classList.add('time-block__item-active');
     this.setTimeout(() => {
         document.querySelectorAll('.time-block__item')[0].classList.remove('time-block__item-active');
-    }, 3500)
+    }, 2200)
     let observer = slider.canvasBox;
     let sliderInd = document.querySelectorAll('.time-block');
 }
@@ -90,7 +93,8 @@ class DXslider {
     settingStyle() {
         this.imagesWidth = this.images.offsetWidth;
         this.width = this.lightenImages[0].width;
-        this.height = this.lightenImages[0].height;
+        // this.height = this.lightenImages[0].height;
+        this.height = 2000;
         this.dpi = this.width / this.imagesWidth;
 
         //this.images.style.height = this.canvasBox.style.height = this.imagesWidth * this.height / this.width + "px";
@@ -197,3 +201,32 @@ class DXslider {
 function easingInOutQuad(t) {
     return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 }
+
+let changeMainImages = () => {
+    let mainScreenImg = document.querySelectorAll('.normal img');
+    let mainScreenBg = document.querySelectorAll('.lighten img');
+    if (window.screen.width <= 769) {
+        mainScreenImg.forEach(img => {
+            console.log(mainScreenImg);
+            console.log(img.src.match(/main-screen/));
+
+            img.src = img.src.replace('main-screen', 'main-screen/mobile')
+        });
+        mainScreenBg.forEach(img => {
+            console.log(mainScreenImg);
+            console.log(img.src.match(/main-screen/));
+
+            img.src = img.src.replace('main-screen', 'main-screen/mobile')
+        });
+    }
+
+};
+
+
+document.querySelectorAll('*').forEach(el => {
+    if (el.width >= 768) {
+
+        console.log(el);
+    }
+
+})

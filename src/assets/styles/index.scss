@@ -1,5 +1,16 @@
+.container {
+    overflow-x: hidden;
+}
+
 .main-screen-container {
     position: relative;
+    overflow: hidden;
+}
+
+.main-screen-content {
+    @include to(768px) {
+        height: calc(90vh - 100px) !important;
+    }
 }
 
 .main-screen {
@@ -28,6 +39,19 @@
     .read-more-block {
         margin-top: 50px;
     }
+    @include to(768px) {
+        padding: 0 22px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        &__title {
+            max-width: 75vw;
+        }
+        &__subtitle {
+            width: 100%;
+        }
+    }
 }
 
 // .main-screen-slider {
@@ -55,6 +79,9 @@
     line-height: 20px;
     letter-spacing: 0.05em;
     color: #ffffff;
+    @include to(768px) {
+        margin-left: auto;
+    }
 }
 
 .developer-logo {
@@ -83,6 +110,9 @@
     &__icon {
         max-height: 50px;
         width: auto;
+    }
+    @include to(768px) {
+        font-size: 12px;
     }
 }
 
@@ -119,6 +149,9 @@
         border-top-right-radius: 50%;
         border-bottom-right-radius: 50%;
     }
+    @include to(768px) {
+        width: 100%;
+    }
 }
 
 .time-block__item-active:before {
@@ -143,8 +176,12 @@
     display: grid;
     grid-template-columns: 21% 21% 6% 25% 25%;
     grid-template-rows: 26% 38% 15% 22%;
-    grid-template-areas: "... slide-image slide-image" "slide-content slide-image slide-image" "... ... more";
     padding: 0 0 0 45px;
+    @include to(768px) {
+        grid-template-columns: 20% 21% 6% 15% 38%;
+        grid-template-rows: 26% 33% 10% 22%;
+        padding: 0 0 0 20px;
+    }
 }
 
 .about-project-text {
@@ -153,12 +190,24 @@
         font-family: $default-font2;
         font-size: 40px;
         line-height: 55px;
+        @include to(768px) {
+            font-size: 28px;
+            line-height: 42px;
+        }
     }
     &__text {
         margin-top: 10px;
         font-size: 14px;
         line-height: 24px;
         color: $mc3;
+        @include to(768px) {
+            font-size: 12px;
+            line-height: 22px;
+        }
+    }
+    @include to(768px) {
+        font-size: 28px;
+        line-height: 42px;
     }
 }
 
@@ -173,11 +222,22 @@
         font-size: 22px;
         line-height: 33px;
         color: #fff;
+        @include to(768px) {
+            font-size: 18px;
+            line-height: 30px;
+        }
     }
     &__text {
         color: $mc3;
         font-size: 14px;
         line-height: 24px;
+        @include to(768px) {
+            font-size: 12px;
+            line-height: 22px;
+        }
+    }
+    @include to(768px) {
+        grid-area: 3/2/5/5;
     }
 }
 
@@ -194,6 +254,9 @@
     }
     &_white {
         color: #fff;
+    }
+    @include to(768px) {
+        font-size: 10px;
     }
 }
 
@@ -232,6 +295,10 @@
     img {
         width: auto;
         height: 100%;
+        @include to(768px) {
+            object-fit: cover;
+            object-position: 0 0;
+        }
     }
 }
 
@@ -245,11 +312,18 @@
         font-size: 22px;
         line-height: 33px;
         font-family: $default-font2;
+        @include to(768px) {
+            font-size: 18px;
+            line-height: 30px;
+        }
     }
     &__subtext {
         cursor: pointer;
         letter-spacing: 0.1em;
         border-bottom: 1px dashed currentColor;
+    }
+    @include to(768px) {
+        padding: 25px 0px 25px 50px;
     }
 }
 
@@ -263,6 +337,9 @@
     background-size: contain;
     .section-title {
         margin-bottom: 50px;
+        @include to(768px) {
+            margin-bottom: 25px;
+        }
     }
     &__single-block {
         display: flex;
@@ -321,6 +398,26 @@
             @include from(768px) {
                 width: 27%;
             }
+            @include to(768px) {
+                width: 32%;
+            }
+        }
+    }
+    @include to(768px) {
+        padding: 60px 22px 50px 22px;
+        &__single-block {
+            &__number {}
+            &__title {
+                font-size: 18px;
+                line-height: 30px;
+            }
+            &__text {
+                font-size: 12px;
+                line-height: 22px;
+            }
+        }
+        .advantages-wrapper1 .advantages__single-block {
+            width: 49%;
         }
     }
 }
@@ -332,12 +429,21 @@
     &_white {
         color: #fff;
     }
+    @include to(768px) {
+        font-size: 28px;
+        line-height: 42px;
+    }
 }
 
 .advantage-img {
     width: 49%;
     max-width: 445px;
     max-height: 445px;
+    @include to(768px) {
+        align-self: center;
+        max-width: 310px;
+        max-height: 310px;
+    }
 }
 
 .location {
@@ -358,6 +464,16 @@
     url(../images/location/loc-bg.png) center no-repeat;
     padding: 78px 45px 0 45px;
     color: #fff;
+    @include to(768px) {
+        background: url(../images/location/bear.png)-60vh 35% no-repeat, url(../images/location/loc-bg.png) center no-repeat;
+        padding: 50px 22px 0 22px;
+        .mini-title {
+            margin-bottom: 35px;
+        }
+        .location-description__block {
+            width: 60%;
+        }
+    }
 }
 
 .location-description__block {
@@ -371,6 +487,10 @@
     line-height: 28px;
     margin-bottom: 20px;
     width: 100%;
+    @include to(768px) {
+        font-size: 14px;
+        line-height: 24px;
+    }
 }
 
 .location-description__subhead {
@@ -378,6 +498,10 @@
     font-size: 14px;
     line-height: 24px;
     width: 48%;
+    @include to(768px) {
+        font-size: 12px;
+        line-height: 22px;
+    }
 }
 
 .location-star-map {
@@ -401,10 +525,30 @@
     &__description p:first-child {
         margin-bottom: 33px;
     }
+    @include to(768px) {
+        margin: 0px -22px -30px auto;
+        max-width: 400px;
+        background: linear-gradient(90deg, #072146 0%, #062043 100%);
+        &__title {
+            margin-bottom: 15px;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        &__description {
+            font-size: 12px;
+            line-height: 22px;
+        }
+        &__description p:first-child {
+            margin-bottom: 22px;
+        }
+    }
 }
 
 .plans {
     padding: 100px 45px 0 45px;
+    @include to(768px) {
+        padding: 100px 22px 0 22px;
+    }
 }
 
 .plans-slider {
@@ -413,6 +557,9 @@
     img {
         max-height: 550px;
         width: auto;
+        @include to(768px) {
+            max-height: 300px;
+        }
     }
     .navigation-box {
         position: absolute;
@@ -516,6 +663,12 @@ li.slick-active button {
             align-self: flex-end;
         }
     }
+    @include to(768px) {
+        .block-text {
+            width: 50%;
+            margin: 0 22px 0 22px;
+        }
+    }
     .single-img {
         margin-top: 80px;
         margin-left: 45px;
@@ -538,6 +691,9 @@ li.slick-active button {
 }
 
 .infra-block__first {
+    @include to(768px) {
+        flex-wrap: wrap;
+    }
     .block-img1 {
         width: 40%;
     }
@@ -547,16 +703,56 @@ li.slick-active button {
     .block-text {
         width: 32%;
     }
+    .infra-block__first .block-img1 {
+        width: 40%;
+        max-height: 315px;
+        align-self: flex-start;
+        width: 30%;
+        margin-left: 20px;
+    }
+    @include to(768px) {
+        .block-img2 {
+            order: 1;
+            margin-left: calc(50% - 155px);
+            margin-top: 55px;
+        }
+        .block-text {
+            width: 45%;
+            transform: translateY(35%);
+        }
+        .block-img1 {
+            width: 40%;
+            max-height: 315px;
+            align-self: flex-start;
+            width: 30%;
+            margin-left: 20px;
+        }
+    }
 }
 
 .infra-block__second {
     justify-content: space-between;
+    @include to(768px) {
+        align-items: flex-start;
+        .block-title {
+            transform: translateX(-100px);
+        }
+    }
     .block-img1 {
         margin-left: 100px;
         width: 50%;
+        @include to(768px) {
+            & {
+                margin-left: 0;
+            }
+        }
     }
     .block-text {
-        width: 37%;
+        @include to(768px) {
+            & {
+                padding-top: 75px;
+            }
+        }
     }
     .block-img2 {
         max-width: 18%;
@@ -579,6 +775,21 @@ li.slick-active button {
     }
     .block-text {
         width: 45%;
+    }
+    @include to(768px) {
+        & {
+            margin-top: 100px;
+        }
+        .block-text {
+            width: 50%;
+            margin: 0 0 0 22px;
+        }
+        .block-img1 {
+            width: 35%;
+        }
+        .block-title {
+            right: 100px;
+        }
     }
 }
 
@@ -609,6 +820,11 @@ li.slick-active button {
         width: auto;
         left: -30px;
     }
+    @include to(768px) {
+        .mini-img {
+            width: 50%;
+        }
+    }
 }
 
 .block-text {
@@ -621,12 +837,24 @@ li.slick-active button {
         line-height: 55px;
         margin-bottom: 20px;
         font-family: $default-font2;
+        @include to(768px) {
+            & {
+                font-size: 28px;
+                line-height: 42px;
+            }
+        }
     }
     &__subtitle {
         font-size: 18px;
         line-height: 28px;
         font-weight: 600;
         color: #426478;
+        @include to(768px) {
+            & {
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
     }
     &__text {
         p:first-child {
@@ -635,6 +863,12 @@ li.slick-active button {
         }
         line-height: 24px;
         color: $mc3;
+        @include to(768px) {
+            & {
+                font-size: 12px;
+                line-height: 22px;
+            }
+        }
     }
 }
 
@@ -656,6 +890,12 @@ li.slick-active button {
     .contact-form {
         width: 48%;
     }
+    @include to(768px) {
+        .contact-form {
+            padding: 40px 35px;
+        }
+        padding: 0 22px;
+    }
 }
 
 .contact-text-block {
@@ -665,6 +905,10 @@ li.slick-active button {
         font-family: $default-font2;
         font-size: 40px;
         line-height: 55px;
+        @include to(768px) {
+            font-size: 28px;
+            line-height: 42px;
+        }
     }
     &__description {
         color: $mc3;
@@ -672,6 +916,13 @@ li.slick-active button {
         p:first-child {
             margin-bottom: 33px;
         }
+        @include to(768px) {
+            font-size: 12px;
+            line-height: 22px;
+        }
+    }
+    @include to(768px) {
+        width: 49%;
     }
 }
 
@@ -717,11 +968,27 @@ li.slick-active button {
     input[type=text].invalid {
         border-bottom: 1px solid red;
     }
+    @include to(768px) {
+        .title {
+            font-size: 18px;
+            line-height: 30px;
+        }
+        input[type=text],
+        textarea {
+            font-size: 12px;
+            line-height: 22px;
+        }
+    }
 }
 
 .address {
     margin-top: 60px;
     transform: translateY(-50%);
+    @include to(768px) {
+        margin-top: 30px;
+        transform: translateY(-75%);
+        margin-bottom: -20%;
+    }
 }
 
 .address-title {
@@ -737,6 +1004,10 @@ li.slick-active button {
     font-size: 16px;
     line-height: 30px;
     color: $mc3;
+    @include to(768px) {
+        font-size: 12px;
+        line-height: 26px;
+    }
 }
 
 .complex-address {
@@ -753,6 +1024,14 @@ li.slick-active button {
         font-family: $default-font2;
         font-size: 22px;
         line-height: 33px;
+    }
+    @include to(768px) {
+        margin-top: 50px;
+        padding: 35px 35px;
+        .description {
+            font-size: 18px;
+            line-height: 30px;
+        }
     }
 }
 

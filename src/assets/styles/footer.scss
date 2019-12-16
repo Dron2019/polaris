@@ -7,6 +7,7 @@
     border-top: 1px solid #E4E7F0;
     color: $mc3;
     font-size: 10px;
+    letter-spacing: 0.1em;
     .footer-block {
         display: flex;
         justify-content: space-between;
@@ -26,6 +27,12 @@
             margin-right: 10px;
             margin-left: 25px;
             width: 70px;
+        }
+    }
+    @include to(768px) {
+        .footer-block .menu-list {
+            font-size: 10px;
+            padding: 30px 0;
         }
     }
 }
@@ -55,6 +62,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 45px;
+    @include to(768px) {
+        padding: 20px 22px;
+    }
 }
 
 .footer-note {

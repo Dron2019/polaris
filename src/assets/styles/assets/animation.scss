@@ -404,19 +404,19 @@
 /* for slider  */
 
 .imgFlipDown {
-    animation: imgFlipDown .5s 1 ease-in;
+    animation: imgFlipDown 1s 1 ease-in;
 }
 
 .imgFlipUp {
-    animation: imgFlipUp .5s 1 ease-in;
+    animation: imgFlipUp 1s 1 ease-in;
 }
 
 .textFlipUp {
-    animation: textFlipUp .5s 1 linear;
+    animation: textFlipUp 1s 1 linear;
 }
 
 .textFlipDown {
-    animation: textFlipDown .5s 1 linear;
+    animation: textFlipDown 1s 1 linear;
 }
 
 @keyframes imgFlipDown {

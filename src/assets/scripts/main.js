@@ -224,12 +224,3 @@ let changeMainImages = () => {
     }
 
 };
-
-
-document.querySelectorAll('*').forEach(el => {
-    if (el.width >= 768) {
-
-        console.log(el);
-    }
-
-})

@@ -1,0 +1,20 @@
+.form-telephone 
+    form.contact-form.tel-form#tel-form
+        .close 
+            img(src="./assets/images/contacts/close-icon.svg")
+        label.title  Зворотній зв’язок
+        div.input-wrapper
+            input(type="text", placeholder="Ім’я:*" name="name")
+            .line
+            span.popup-help Ім’я:*
+        div.input-wrapper
+            input(type="text", placeholder="Телефон:*" name="telephone")
+            .line
+            span.popup-help Телефон:*
+        input(type="radio" name="checkedtime") 
+        label Вказати зручний час
+        input(type="radio" name="randomtime") 
+        label Зателефонуйте зараз
+        button(type="button" class="read-more-block  send-form")
+            img(class="read-more-block__icon" src="./assets/images/common/read-more-icon.svg", alt="read-more")
+            span(class="read-more-block__text read-more-block__text_dark ") Відправити

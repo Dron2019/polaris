@@ -13,16 +13,17 @@ block scripts
 	script(src='./assets/scripts/simpleParalax.js') 
 	script(src='./assets/scripts/slider.js')
 	script(src='./assets/scripts/map.js')
+	script(src='./assets/scripts/mob-menu.js')
 	
 block content		
 	section(class="main-screen-container")
 		.main-screen-slider#images
 			.lighten
-				img(src="./assets/images/main-screen/day-bg.png")
+				img(src="./assets/images/main-screen/day-stars.png")
 				img(src="./assets/images/main-screen/evening-bg.png")
 				img(src="./assets/images/main-screen/stars1.png")
 			.normal
-				img(src="./assets/images/main-screen/day.png")
+				img(src="./assets/images/main-screen/day-bg.png")
 				img(src="./assets/images/main-screen/evening.png")
 				img(src="./assets/images/main-screen/home.png")
 				
@@ -77,6 +78,8 @@ block content
 			div(class="slide" data-img="image1.png" data-title="Зіркове життя майбутнього" data-text="POLARIS стане яскравою зіркою та практичним житловим рішенням у затишній частині столичної Оболоні. Комплекс відкриє власникам квартир новий рівень сучасних можливостей за принципом – «живи-працюй-релаксуй»." data-secondTitle="Дружня та відкрита філософія POLARIS – " data-secondText="це новий клас житла, що підходить для усіх сучасних людей та здатен задовольнити максимум інтересів. ")
 			div(class="slide" data-img="image2.png" data-title="Багатофункціональний та зірковий" data-text="Завдяки POLARIS в цьому мікрорайоні вперше буде доступна мультифункціональність, що набирає все більшої популярності у європейських житлово-комерційних рішеннях." data-secondTitle="Орієнтуємось на потреби прогресивних киян" data-secondText="POLARIS робить доступними якісні європейські рішення, що сподобаються і молодій парі, яка планує свою першу дитину, і великій родині з дітьми і тим, хто проживає сам. ")
 			div(class="slide" data-img="image3.png" data-title="Щаслива зірка для кожного" data-text="Саме тому нова концепція цього житлового комплексу представляє мультифункціональну будівлю у класі «комфорт +»." data-secondTitle="Власний ТЦ та садочок" data-secondText="Окрім квартир за доступною ціною м2 повноцінними складовими стане власний ТРЦ, дитячий садочок, спортивний клуб на перших поверхах.")
+			div(class="slide" data-img="image3.png" data-title="Трендовий підхід до житлового та публічного простору" data-text="Фрілансерам та спеціалістам, що не їздять в офіс щодня цей формат надасть можливість зручно працювати прямо з дому. Оптимальний перелік сервісів для дітей та дорослих дозволить всім членам сім'ї витрачати дорогоцінний час на дійсно важливі та цікаві речі." data-secondTitle="Комфортно буде кожному!" data-secondText="POLARIS - новий рівень зручностей розроблений для того, щоб мешканці могли відчути максимальну свободу та отримати можливості для особистої реалізації.")
+			div(class="slide" data-img="image3.png" data-title="Зірка POLARIS – Ваш надійний орієнтир в житловому питанні" data-text="Це житловий комплекс нового покоління, він відкритий для широкої аудиторії, бо тут справді легко поєднувати різні стилі і способи життя." data-secondTitle="Квартира саме для Вас" data-secondText="Просто зверніться до відділу продажів і дізнайтеся, які квартири формату POLARIS підходять саме вам.")
 	section(class="advantages container")
 		.mini-title Переваги
 		.advantages-wrapper1
@@ -115,62 +118,63 @@ block content
 					span.advantages__single-block__number_gray / 04
 				.advantages__single-block__title Модних шопінг у власному домі 
 				.advantages__single-block__text На перших поверхах житлового комплексу відкриється власний торговий центр. А також продуктовий супермаркет зі свіжими продуктами, що дозволить робити покупки, не виходячи за територію.
-	section(class="location container")
-		div(class="mini-title mini-title_white") Місцерозташування
-		div(class="section-title_white section-title") Краще місце для майбутнього
-		.location-description__block
-			.location-description__head Разом з POLARIS відкривається можливість жити в одному з найбільш перспективних та привабливих куточків Оболонського району столиці (мікрорайон Мінського масиву). 
-			.location-description__subhead POLARIS має оптимальне місцерозташування – все знаходиться поруч і водночас саме в цій частині Оболоні немає перенаселення і ефекту «мурашника».
-			.location-description__subhead Це чиста та простора локація, де у забудовника є свобода створити саме те, чого бажають власники квартир. Є унікальна можливість придбати житло з панорамним краєвидом на озеро і парк. 
-		<svg class="location-star-map" width="100%" height="100%" version="1.1" viewBox="0 0 473.49 292.87" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-			<g transform="translate(352.41 18.024)">
-			<text class="number"  x="49.731" y="5.3087" >5</text>
-			<text class="text"  x="68.731" y="5.3087" >Хвилин</text>
-			<text class="text"  x="68.731" y="-5.3087" >до метро</text>
-			<image class="shine" x="29.731" y="-5.3087" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
-			<text class="number" x="-56.33" y="23.556" >10</text> 
-			<text class="text" x="-22.33" y="13.556" >хвилин на авто </text> 
-			<text class="text" x="-22.33" y="23.556" >до Пущі Водиці</text> 
-			<image class="shine" x="-56.33" y="23.556" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
-			<text class="number" x="-100.7" y="75.941" >7</text>
-			<text class="text" x="-80.7" y="65.941" >хвилин до  </text>
-			<text class="text" x="-80.7" y="75.941" >виїзду з міста</text>
-			<image class="shine" x="-100.7" y="75.941" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
-			<text class="number" x="-175" y="124.93" >12</text>
-			<text class="text" x="-142" y="114.93" >хвилин до </text>
-			<text class="text" x="-142" y="124.93" >Вишгородської набережної</text>
-			<image class="shine" x="-175" y="129.93" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
-			<text class="number" x="-323.6" y="-323.6" >666</text>
-			<image class="shine" x="-323.6" y="-323.6" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
-			<text class="number" x="-156.98" y="197.28" >7</text>
-			<text class="text" x="-141.98" y="192.28" >хвилин до ринку </text>
-			<text class="text" x="-141.98" y="202.28" >та автостанції «Полісся» </text>
-			<image class="shine" x="-166.98" y="197.28" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
-			<text class="number" x="-270.3" y="247.56" >3</text>
-			<text class="text" x="-250.3" y="232.56">хвилин до будівельних  </text>
-			<text class="text" x="-250.3" y="242.56"> гіпермаркетів «Епіцентр» та </text>
-			<text class="text" x="-250.3" y="252.56">«Leroy Merlin« на Полярній</text>
-			<image class="shine" x="-280.3" y="232.56" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
-			<image class="shine" x="-320.731" y="165.56" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
-			<text class="number" x="-300.731" y="195.56" >3</text>
-			<text class="text" x="-280.731" y="180.56" >хвилин до ТРЦ «Караван», </text>
-			<text class="text" x="-280.731" y="190.56" >гіпермаркету «Ашан»</text>
-			<g fill="none" stroke="#426478">
-				<path d="m-37.741 32.187 71.249-23.057" stroke-width=".26458px"/>
-				<path d="m-50.258 42.457-33.542 40.358" stroke-width=".26458px"/>
-				<path d="m-95.628 93.444-60.325 44.146" stroke-width=".29783px"/>
-				<path d="m-170.66 146.69-133.63 26.059" stroke-width=".26458px"/>
-				<path d="m-310.16 181.85 35.585 56.714" stroke-width=".30534px"/>
-				<path d="m-161.71 213.56-99.91 28.474" stroke-width=".30783px"/>
-				<path d="m-163.27 150.21 4.5956 49.741" stroke-width=".10873px"/>
-			</g>
-			</g>
-		</svg>
-		.location-bottom-block 
-			.location-bottom-block__title Зручно під'їхати в ТРЦ Dream Town
-			.location-bottom-block__description
-				p Житловий комплекс знаходиться поруч з великою транспортною розв'язкою, зупинкою громадського транспорту та в 5 хвилинах на авто чи маршрутці до станцій метро Оболонь, Мінська, Героїв Сталінграда.
-				p В кількох кварталах від будинку проходять різні маршрути громадського транспорту, що дозволяють без проблем дістатися будь-якої точки Києва. За додатковим розвагами і шопінгом звідси зручно під'їхати в ТРЦ Dream Town.
+	section.location-layout
+		div(class="location container")
+			div(class="mini-title mini-title_white") Місцерозташування
+			div(class="section-title_white section-title") Краще місце для майбутнього
+			.location-description__block
+				.location-description__head Разом з POLARIS відкривається можливість жити в одному з найбільш перспективних та привабливих куточків Оболонського району столиці (мікрорайон Мінського масиву). 
+				.location-description__subhead POLARIS має оптимальне місцерозташування – все знаходиться поруч і водночас саме в цій частині Оболоні немає перенаселення і ефекту «мурашника».
+				.location-description__subhead Це чиста та простора локація, де у забудовника є свобода створити саме те, чого бажають власники квартир. Є унікальна можливість придбати житло з панорамним краєвидом на озеро і парк. 
+			<svg class="location-star-map" width="100%" height="100%" version="1.1" viewBox="0 0 473.49 292.87" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<g transform="translate(352.41 18.024)">
+				<g fill="none" stroke="#426478">
+					<path d="m-37.741 32.187 71.249-23.057" stroke-width=".26458px"/>
+					<path d="m-50.258 42.457-33.542 40.358" stroke-width=".26458px"/>
+					<path d="m-95.628 93.444-60.325 44.146" stroke-width=".29783px"/>
+					<path d="m-170.66 146.69-133.63 26.059" stroke-width=".26458px"/>
+					<path d="m-310.16 181.85 35.585 56.714" stroke-width=".30534px"/>
+					<path d="m-161.71 213.56-99.91 28.474" stroke-width=".30783px"/>
+					<path d="m-163.27 150.21 4.5956 49.741" stroke-width=".10873px"/>
+				</g>
+				<text class="number"  x="49.731" y="5.3087" >5</text>
+				<text class="text"  x="68.731" y="5.3087" >Хвилин</text>
+				<text class="text"  x="68.731" y="-5.3087" >до метро</text>
+				<image class="shine" x="29.731" y="-5.3087" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				<text class="number" x="-56.33" y="23.556" >10</text> 
+				<text class="text" x="-22.33" y="13.556" >хвилин на авто </text> 
+				<text class="text" x="-22.33" y="23.556" >до Пущі Водиці</text> 
+				<image class="shine" x="-56.33" y="23.556" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				<text class="number" x="-100.7" y="75.941" >7</text>
+				<text class="text" x="-80.7" y="65.941" >хвилин до  </text>
+				<text class="text" x="-80.7" y="75.941" >виїзду з міста</text>
+				<image class="shine" x="-100.7" y="75.941" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				<text class="number" x="-175" y="124.93" >12</text>
+				<text class="text" x="-142" y="114.93" >хвилин до </text>
+				<text class="text" x="-142" y="124.93" >Вишгородської набережної</text>
+				<image class="shine" x="-175" y="129.93" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				<text class="number" x="-323.6" y="-323.6" >666</text>
+				<image class="shine" x="-323.6" y="-323.6" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				<text class="number" x="-156.98" y="197.28" >7</text>
+				<text class="text" x="-141.98" y="192.28" >хвилин до ринку </text>
+				<text class="text" x="-141.98" y="202.28" >та автостанції «Полісся» </text>
+				<image class="shine" x="-166.98" y="197.28" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				<text class="number" x="-270.3" y="247.56" >3</text>
+				<text class="text" x="-250.3" y="232.56">хвилин до будівельних  </text>
+				<text class="text" x="-250.3" y="242.56"> гіпермаркетів «Епіцентр» та </text>
+				<text class="text" x="-250.3" y="252.56">«Leroy Merlin« на Полярній</text>
+				<image class="shine" x="-280.3" y="232.56" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				<image class="shine" x="-320.731" y="165.56" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				<text class="number" x="-300.731" y="195.56" >3</text>
+				<text class="text" x="-280.731" y="180.56" >хвилин до ТРЦ «Караван», </text>
+				<text class="text" x="-280.731" y="190.56" >гіпермаркету «Ашан»</text>
+				</g>
+			</svg>
+			.location-bottom-block 
+				.location-bottom-block__title Зручно під'їхати в ТРЦ Dream Town
+				.location-bottom-block__description
+					p Житловий комплекс знаходиться поруч з великою транспортною розв'язкою, зупинкою громадського транспорту та в 5 хвилинах на авто чи маршрутці до станцій метро Оболонь, Мінська, Героїв Сталінграда.
+					p В кількох кварталах від будинку проходять різні маршрути громадського транспорту, що дозволяють без проблем дістатися будь-якої точки Києва. За додатковим розвагами і шопінгом звідси зручно під'їхати в ТРЦ Dream Town.
 	section(class="plans container")
 		.mini-title Варіанти планувань
 		.plans-slider
@@ -197,7 +201,7 @@ block content
 					img(src="./assets/images/plans/flat.png")
 				.slide 
 					.about-project__counter 
-						span.current 01
+						span.current 02
 						span.max 05
 					.text 
 						ul
@@ -211,7 +215,7 @@ block content
 					img(src="./assets/images/plans/flat.png")
 				.slide 
 					.about-project__counter 
-						span.current 01
+						span.current 03
 						span.max 05
 					.text 
 						ul
@@ -225,7 +229,7 @@ block content
 					img(src="./assets/images/plans/flat.png")
 				.slide 
 					.about-project__counter 
-						span.current 01
+						span.current 04
 						span.max 05
 					.text 
 						ul
@@ -239,7 +243,7 @@ block content
 					img(src="./assets/images/plans/flat.png")
 				.slide 
 					.about-project__counter 
-						span.current 01
+						span.current 05
 						span.max 05
 					.text 
 						ul
@@ -284,12 +288,12 @@ block content
 		//- BLOCK 2
 		div(class="infra-block infra-block__second")
 			.block-text
-				.block-text__title Краще місце 
-					span.yellow майбутнього 			
-				.block-text__subtitle Мрієте про більшу кількість вільного часу, економію коштів на бензині, дитячу інфраструктуру у власному домі?  
+				.block-text__title Лобі із власним 
+					span.yellow торговим центром			
+				.block-text__subtitle Щоб дістатися будь-якого з сервісів або магазинів, достатньо буде лише натиснути кнопку ліфту  
 				.block-text__text
-					p Тут це стає реальністю. Торговельну і розважальну функцію POLARIS досконало поєднано із житлом. Для того щоб потрапити з квартири на шопінг, заняття з йоги, щоденне тренування, сніданок у кафе достатньо буде лише натиснути кнопку ліфта.
-					p Затишні фудкорти і ресторани в торговому центрі завжди дозволять запланувати романтичний вечір або дружню зустріч, не виходячи за межі дому.
+					p Оцініть новий рівень можливостей: запашну каву щоранку в кав'ярні на першому поверсі, зручний шопінг, регулярні заняття спортом, сучасний дитячий садочок, затишну зелену оазу парку у дворі – і все це за крок від дому. 
+					p Тут все буде вчасно. Вся необхідна інфраструктура розміститься на перших поверхах. Тож власники квартир не витрачатимуть дорогоцінний час на зайву дорогу або затори.
 				.read-more-block 
 					img(class="read-more-block__icon" src="./assets/images/common/read-more-icon.svg", alt="read-more")
 					span(class="read-more-block__text read-more-block__text_dark") ДІЗНАТИСЬ БІЛЬШЕ
@@ -301,14 +305,14 @@ block content
 		div(class="infra-block infra-block__third")
 			.block-text
 				.block-text__title
-					span.yellow Лобі 	
+					span.yellow Вхідна група 	
 					span рівня п’ятизіркового готелю
 				.block-text__subtitle Щодня  мешканців зустрічатиме та надихатиме особлива атмосфера, яку забезпечить досконалий дизайн, світло і кращі матеріали.  
 				.block-text__text
 					p Ставлення до місць загального користування - це показник рівня будинку. Позиціонування комплексу обумовило високі вимоги до внутрішнього простору і дизайну – бути максимально зручними, комфортними, приємними і стильними водночас. Тож творці комплексу небанально підійшли до рішення в холі.
-					p Вхідна група ЖК POLARIS починається з чудово продуманого і обладнаного лобі.Мешканці будинку матимуть краще місце для зустрічі та для робочого конференц-колла. Просторі холи відрізнятимуться оригінальним оформленням і включатимуть в себе ресепшен, зону для очікувань, зручні красиві ліфти. 
+					p Вхідна група ЖК POLARIS починається з чудово продуманого і обладнаного лобі. Мешканці будинку матимуть краще місце для зустрічі та для робочого конференц-колла. Просторі холи відрізнятимуться оригінальним оформленням і включатимуть в себе ресепшен, зону для очікувань, зручні красиві ліфти. 
 			.block-img1
-				.block-title lobby
+				.block-title entry
 				img(class="thumbnail" src="./assets/images/infrastructure/entrance.png")
 				img(class="mini-img " src="./assets/images/infrastructure/photo1.png")
 		//- BLOCK 4
@@ -340,7 +344,7 @@ block content
 					img(class="read-more-block__icon" src="./assets/images/common/read-more-icon.svg", alt="read-more")
 					span(class="read-more-block__text read-more-block__text_dark") ДІЗНАТИСЬ БІЛЬШЕ
 			.block-img1
-				//- .block-title lobby
+				.block-title lounge
 				img(class="thumbnail" src="./assets/images/infrastructure/park1.png")
 				img(class="mini-img" src="./assets/images/infrastructure/park2.png")
 	section(class="contacts container")
@@ -351,10 +355,24 @@ block content
 				p Разом з POLARIS відкривається можливість жити в одному з найбільш перспективних та привабливих куточків Оболонського району столиці (мікрорайон Мінського масиву). 
 				p POLARIS має оптимальне місцерозташування – все знаходиться поруч і водночас саме в цій частині Оболоні немає перенаселення і ефекту «мурашника». Це чиста та простора локація, де у забудовника є свобода створити саме те, чого бажають власники квартир.
 		form.contact-form#main-form
+			.close 
+				img(src="./assets/images/contacts/close-icon.svg")
 			label.title  Зворотній зв’язок
-			input(type="text", placeholder="Ім’я:*" name="name")
-			input(type="text", placeholder="E-mail:*" name="email")
-			textarea(type="text" class="message", placeholder="Повідомлення:" name="message")
+			div.input-wrapper
+				
+				input(type="text", placeholder="Ім’я:*" name="name")
+				.line
+				span.popup-help Ім’я:*
+			div.input-wrapper
+				
+				input(type="text", placeholder="E-mail:*" name="email")
+				.line
+				span.popup-help E-mail:*
+			div.input-wrapper
+				
+				textarea(type="text" class="message", placeholder="Повідомлення:" name="message")
+				.line
+				span.popup-help Повідомлення:
 			button(type="button" class="read-more-block  send-form")
 				img(class="read-more-block__icon" src="./assets/images/common/read-more-icon.svg", alt="read-more")
 				span(class="read-more-block__text read-more-block__text_dark ") Відправити
@@ -382,7 +400,7 @@ block content
 					a(href="mailto:info@polaris.com.ua") info@polaris.com.ua
 	.map#map
 		//- img(src="./assets/images/contacts/map.png")
-	.map-popup 
+	div(class="map-popup" style="display:none")
 		img(src="./assets/images/logo1.svg")
 		img(class="close" src="./assets/images/contacts/close-icon.svg")
 		.map-popup__text Адреса: м. Київ, вул. Вулиця, 45
@@ -397,6 +415,8 @@ block footer
 			}
 			setTimeout(func, 4000);
 		include ../includes/footer.pug
+		include ../includes/mob-menu.pug
+		include ../includes/form-telephone.pug
 block header
 	header.header
 		include ../includes/header.pug

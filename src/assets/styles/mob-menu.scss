@@ -1,0 +1,100 @@
+.menu-container {
+    position: fixed;
+    width: 100vw;
+    height: calc(100vw / 768 * 600);
+    top: 0;
+    left: 0;
+    background: url(../images/common/mob-menu-bg.png) center no-repeat;
+    background-size: cover;
+    z-index: 100;
+    display: none;
+    .close {
+        width: 29px;
+        height: 29px;
+        background: url(../images/common/mob-close.svg);
+    }
+    a {
+        text-decoration: none;
+        color: $mc3;
+    }
+    transform-origin: top right;
+}
+
+.menu-title {
+    font-size: 60px;
+    line-height: 80px;
+    color: #fff;
+    font-family: $default-font2;
+}
+
+.mob-menu-list {
+    color: #fff;
+    font-size: 22px;
+    line-height: 26px;
+    text-transform: uppercase;
+    li {
+        margin-top: 34px;
+    }
+}
+
+.mob-menu-content {
+    position: absolute;
+    left: 45vw;
+    margin-top: 75px;
+}
+
+.mob-menu-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: $mc;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mob-address:before {
+    content: url(../images/common/marker-mob.svg);
+    margin-right: 10px;
+}
+
+.mob-tel:before {
+    content: url(../images/common/tel.svg);
+    margin-right: 10px;
+}
+
+.mob-mail:before {
+    content: url(../images/common/letter.svg);
+    margin-right: 10px;
+}
+
+@keyframes menuOpen {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+@keyframes menuClose {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0)
+    }
+}
+
+.menuOpen {
+    animation: menuOpen 1s 1 linear;
+}
+
+.menuClose {
+    animation: menuClose 1s 1 linear;
+}
+
+.opened {
+    display: block;
+}

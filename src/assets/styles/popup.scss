@@ -12,6 +12,12 @@
         width: 70vw;
         height: 45vh;
     }
+    @include to(475px) {
+        form {
+            width: calc(100vw - 20px);
+            height: auto;
+        }
+    }
 }
 
 .popup-content {
@@ -25,4 +31,8 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
+}
+
+.form-telephone {
+    display: none;
 }

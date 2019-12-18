@@ -304,5 +304,7 @@
 
 // init
 // var image = document.getElementsByClassName('thumbnail');
-var images = document.querySelectorAll('.infrastructure .thumbnail');
-new simpleParallax(images);
+if (window.screen.width > 475) {
+    var images = document.querySelectorAll('.infrastructure .thumbnail');
+    new simpleParallax(images);
+}

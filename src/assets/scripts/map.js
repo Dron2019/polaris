@@ -22,16 +22,16 @@ function initMap() {
         lng: 30.515734
     }; /*{lat:50.406493, lng: 30.519515};*/
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: center,
-        scrollwheel: false,
-        navigationControl: false,
-        mapTypeControl: false,
-        scaleControl: false,
-        draggable: true,
+    // var map = new google.maps.Map(document.getElementById('map'), {
+    //     zoom: 15,
+    //     center: center,
+    //     scrollwheel: false,
+    //     navigationControl: false,
+    //     mapTypeControl: false,
+    //     scaleControl: false,
+    //     draggable: true,
 
-    });
+    // });
 
     var polygonCoords = [
         new google.maps.LatLng(50.433919, 30.513405),

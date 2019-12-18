@@ -18,6 +18,10 @@
         color: $mc3;
     }
     transform-origin: top right;
+    @include to(475px) {
+        height: 100vh;
+        background: url(../images/location/loc-bg.png) center no-repeat;
+    }
 }
 
 .menu-title {
@@ -25,6 +29,9 @@
     line-height: 80px;
     color: #fff;
     font-family: $default-font2;
+    @include to(475px) {
+        font-size: 20px;
+    }
 }
 
 .mob-menu-list {
@@ -35,12 +42,25 @@
     li {
         margin-top: 34px;
     }
+    @include to(475px) {
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+        line-height: 26px;
+    }
 }
 
 .mob-menu-content {
     position: absolute;
     left: 45vw;
     margin-top: 75px;
+    @include to(475px) {
+        position: initial;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .mob-menu-footer {
@@ -52,6 +72,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    @include to(475px) {
+        display: none;
+    }
 }
 
 .mob-address:before {

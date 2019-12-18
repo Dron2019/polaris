@@ -37,11 +37,9 @@ let formValid = (form) => {
     };
     console.log(finalObject);
 }
-let readMoreList = document.querySelectorAll('.read-more-block');
+let readMoreList = document.querySelectorAll('.form-js');
 readMoreList.forEach(e => {
-
     e.addEventListener('click', function(i) {
-
         if (e.tagName == 'BUTTON') {
             formValid(e.parentElement)
             return

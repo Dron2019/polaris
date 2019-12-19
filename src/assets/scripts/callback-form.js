@@ -15,9 +15,16 @@ let popupForm = () => {
 let formValid = (form) => {
     let name = form.querySelector('[name=name]'),
         email = form.querySelector('[name=email]'),
-        message = form.querySelector('textarea');
-
+        message = form.querySelector('textarea'),
+        radio = form.querySelectorAll('input[name=checkedtime]');
     let finalObject = {};
+    radio.forEach(e => {
+        e.checked ? finalObject.radio = e.value : null;
+    })
+
+
+
+
     emailExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     telExpression = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
     if (email && email.value.match(emailExpression)) {
@@ -36,9 +43,12 @@ let formValid = (form) => {
 
     };
     console.log(finalObject);
-}
+};
+
+
 let readMoreList = document.querySelectorAll('.form-js');
 readMoreList.forEach(e => {
+    console.log(e);
     e.addEventListener('click', function(i) {
         if (e.tagName == 'BUTTON') {
             formValid(e.parentElement)
@@ -48,4 +58,9 @@ readMoreList.forEach(e => {
             popupForm();
         }
     });
+});
+
+let telForm = document.querySelector('#tel-form');
+telForm.querySelector('.send-form').addEventListener('click', (e) => {
+    formValid(telForm);
 });

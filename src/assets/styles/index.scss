@@ -701,13 +701,23 @@
             padding: 100px 22px 0 22px;
         }
         @include to(475px) {
-            padding: 185px 22px 0 22px !important;
+            padding: 185px 10px 0 10px !important;
         }
     }
     
     .plans-slider {
         margin-top: 35px;
         position: relative;
+        .plan-list {
+            display: flex;
+            flex-wrap: wrap;
+            li:first-child {
+                width: 100%;
+            }
+            li {
+                width: 45%;
+            }
+        }
         img {
             max-height: 550px;
             width: auto;
@@ -726,7 +736,7 @@
             justify-content: space-between;
             width: 100%;
             @include to(475px) {
-                top: calc(100% - 40px);
+                top: calc(100% - 50px);
             }
             &__item {
                 height: 42px;
@@ -779,9 +789,21 @@
                 content: url(../images/common/line.svg);
                 display: block;
                 margin-top: -8px;
+                @include to(475px) {
+                    display: none;
+                }
             }
             @include to(475px) {
                 flex-wrap: wrap-reverse;
+                justify-content: center;
+                .text {
+                    margin-top: 10px;
+                }
+                .room-type,
+                .square {
+                    font-size: 12px;
+                    line-height: 20px;
+                }
             }
         }
         .plans-dots {
@@ -806,6 +828,9 @@
         margin-top: 30px;
         display: flex;
         justify-content: center;
+        @include to(475px) {
+            transform: translateX(-12px);
+        }
     }
     
     .plans button[type=button] {
@@ -818,6 +843,13 @@
         color: transparent;
         &:hover {
             background: url(../images/plans/romb-hover.svg) center no-repeat;
+            width: 13px;
+            height: 13px;
+        }
+        @include to(475px) {
+            background-size: contain;
+            width: 13px;
+            height: 13px;
         }
     }
     
@@ -843,6 +875,12 @@
             .block-text {
                 width: 50%;
                 margin: 0 22px 0 22px;
+            }
+        }
+        @include to(475px) {
+            margin-top: 75px;
+            .mini-title {
+                padding-left: 0px;
             }
         }
         .single-img {
@@ -914,6 +952,10 @@
                 top: 0;
                 left: 0;
             }
+            @include to(475px) {
+                top: 25px;
+                left: 30%;
+            }
         }
         .infra-block__first .block-img1 {
             width: 40%;
@@ -945,6 +987,11 @@
                 width: 100%;
                 margin-left: 0;
                 max-height: 272px;
+                overflow-x: hidden;
+                overflow-y: visible;
+                .thumbnail {
+                    transform: translateY(-20%);
+                }
             }
             .block-text {
                 width: 100%;
@@ -999,6 +1046,13 @@
         .block-img2 {
             max-width: 18%;
         }
+        @include to(475px) {
+            .block-title {
+                right: 0;
+                top: 80%;
+                position: absolute;
+            }
+        }
     }
     
     .infra-block__third {
@@ -1047,9 +1101,13 @@
                 transform: translateY(0);
                 margin-left: auto;
                 order: 1;
+                .mini-img {
+                    transform: translateY(75%);
+                }
             }
             .block-title {
                 right: 100px;
+                top: 35px;
             }
         }
     }
@@ -1128,7 +1186,12 @@
                 width: 100%;
                 margin: 0 0 0 0;
             }
-            .block-title {}
+            .block-title {
+                display: initial;
+                top: -25px;
+                right: -55px;
+                z-index: 20;
+            }
         }
     }
     
@@ -1269,6 +1332,72 @@
         textarea:focus~.line {
             animation: load 1s 1 linear;
             background: $mc5
+        }
+        .radio-group {
+            position: relative;
+            margin-top: 20px;
+        }
+        /*custom radion button*/
+        [type="radio"]:checked,
+        [type="radio"]:not(:checked) {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            opacity: 0;
+        }
+        [type="radio"]:checked+label[for=radio],
+        [type="radio"]:not(:checked)+label[for=radio] {
+            position: relative;
+            padding-left: 28px;
+            cursor: pointer;
+            line-height: 20px;
+            display: inline-block;
+            pointer-events: none;
+        }
+        [type="radio"]:checked+label[for=radio]:before,
+        [type="radio"]:not(:checked)+label[for=radio]:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            border: 1px solid $mc5;
+            border-radius: 100%;
+            background: #fff;
+        }
+        [type="radio"]:checked+label[for=radio]:after,
+        [type="radio"]:not(:checked)+label[for=radio]:after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #F7D323;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            border-radius: 100%;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+        [type="radio"]:not(:checked)+label[for=radio]:after {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+        [type="radio"]:checked+label[for=radio]:after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        /*custom radion END*/
+        .checkedtime {
+            display: none;
+        }
+        .checkedtimeRadio:hover .checkedtime {
+            display: block;
+        }
+        label[for=radio]:before {
+            color: $mc;
         }
         .popup-help {
             position: absolute;
@@ -1459,6 +1588,18 @@
     }
     /*SVG */
     
+    .mob-location {
+        @include from(476px) {
+            display: none;
+        }
+    }
+    
+    .location-star-map {
+        @include to(475px) {
+            display: none;
+        }
+    }
+    
     .shine {
         width: 40px;
         height: 40px;
@@ -1473,14 +1614,24 @@
         font-size: 30px;
         font-weight: bold;
         stroke-width: 0.85px;
+        @include to(475px) {
+            font-size: 18px;
+            font-weight: bold;
+            stroke-width: 0.65px;
+        }
     }
     
-    .text {
+    svg .text {
         font-size: 6px;
         font-weight: 600;
         line-height: 22px;
         fill: #fff;
         text-transform: uppercase;
+        @include to(475px) {
+            font-weight: normal;
+            font-size: 3px;
+            transform: translateX(10px);
+        }
     }
     
     .block-title {

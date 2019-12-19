@@ -14,6 +14,7 @@ block scripts
 	script(src='./assets/scripts/slider.js')
 	script(src='./assets/scripts/map.js')
 	script(src='./assets/scripts/mob-menu.js')
+	script(src='./assets/scripts/location.js')
 	
 block content		
 	section(class="main-screen-container")
@@ -129,7 +130,7 @@ block content
 				.location-description__subhead Це чиста та простора локація, де у забудовника є свобода створити саме те, чого бажають власники квартир. Є унікальна можливість придбати житло з панорамним краєвидом на озеро і парк. 
 			<svg class="location-star-map" width="100%" height="100%" version="1.1" viewBox="0 0 473.49 292.87" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				<g transform="translate(352.41 18.024)">
-				<g fill="none" stroke="#426478">
+				<g class="star-path" fill="none" stroke="#426478">
 					<path d="m-37.741 32.187 71.249-23.057" stroke-width=".26458px"/>
 					<path d="m-50.258 42.457-33.542 40.358" stroke-width=".26458px"/>
 					<path d="m-95.628 93.444-60.325 44.146" stroke-width=".29783px"/>
@@ -138,39 +139,142 @@ block content
 					<path d="m-161.71 213.56-99.91 28.474" stroke-width=".30783px"/>
 					<path d="m-163.27 150.21 4.5956 49.741" stroke-width=".10873px"/>
 				</g>
+				<image class="shine" x="-323.6" y="-323.6" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				<g class="location-group-left">
 				<text class="number"  x="49.731" y="5.3087" >5</text>
 				<text class="text"  x="68.731" y="5.3087" >Хвилин</text>
 				<text class="text"  x="68.731" y="-5.3087" >до метро</text>
 				<image class="shine" x="29.731" y="-5.3087" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				</g>
+				<g class="location-group-right">
 				<text class="number" x="-56.33" y="23.556" >10</text> 
 				<text class="text" x="-22.33" y="13.556" >хвилин на авто </text> 
 				<text class="text" x="-22.33" y="23.556" >до Пущі Водиці</text> 
 				<image class="shine" x="-56.33" y="23.556" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				</g>
+				<g class="location-group-left">
 				<text class="number" x="-100.7" y="75.941" >7</text>
 				<text class="text" x="-80.7" y="65.941" >хвилин до  </text>
 				<text class="text" x="-80.7" y="75.941" >виїзду з міста</text>
 				<image class="shine" x="-100.7" y="75.941" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				</g>
+				<g class="location-group-right">
 				<text class="number" x="-175" y="124.93" >12</text>
 				<text class="text" x="-142" y="114.93" >хвилин до </text>
 				<text class="text" x="-142" y="124.93" >Вишгородської набережної</text>
 				<image class="shine" x="-175" y="129.93" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
-				<text class="number" x="-323.6" y="-323.6" >666</text>
-				<image class="shine" x="-323.6" y="-323.6" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				</g>
+				
+				<g class="location-group-left">
 				<text class="number" x="-156.98" y="197.28" >7</text>
 				<text class="text" x="-141.98" y="192.28" >хвилин до ринку </text>
 				<text class="text" x="-141.98" y="202.28" >та автостанції «Полісся» </text>
 				<image class="shine" x="-166.98" y="197.28" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				</g>
+				<g class="location-group-right">
 				<text class="number" x="-270.3" y="247.56" >3</text>
 				<text class="text" x="-250.3" y="232.56">хвилин до будівельних  </text>
 				<text class="text" x="-250.3" y="242.56"> гіпермаркетів «Епіцентр» та </text>
 				<text class="text" x="-250.3" y="252.56">«Leroy Merlin« на Полярній</text>
 				<image class="shine" x="-280.3" y="232.56" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+				</g>
+				<g class="location-group-left">
 				<image class="shine" x="-320.731" y="165.56" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
 				<text class="number" x="-300.731" y="195.56" >3</text>
 				<text class="text" x="-280.731" y="180.56" >хвилин до ТРЦ «Караван», </text>
 				<text class="text" x="-280.731" y="190.56" >гіпермаркету «Ашан»</text>
 				</g>
+				</g>
 			</svg>
+			<svg class="mob-location" width="100%" height="100%" version="1.1" viewBox="0 0 84.667 216.96" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<g transform="translate(-10 -80.042)">
+
+					<!-- stars -->
+				<!-- <ellipse cx="20.446" cy="95.612" rx="6.6229" ry="6.0884" fill="#3c3698" stroke="#426478" stroke-width=".062079" style="paint-order:markers fill stroke"/> -->
+				<image class="shine" x="20.446" y="95.612" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+
+				<!-- <ellipse cx="55.859" cy="121.14" rx="6.6229" ry="6.0884" fill="#3c3698" stroke="#426478" stroke-width=".062079" style="paint-order:markers fill stroke"/> -->
+				<image class="shine" x="55.859" y="121.14" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+
+				<!-- <ellipse cx="14.7" cy="141.18" rx="6.6229" ry="6.0884" fill="#3c3698" stroke="#426478" stroke-width=".062079" style="paint-order:markers fill stroke"/> -->
+				<image class="shine" x="14.7" y="141.18" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+
+
+				<!-- <ellipse cx="38.22" cy="172.19" rx="6.6229" ry="6.0884" fill="#3c3698" stroke="#426478" stroke-width=".062079" style="paint-order:markers fill stroke"/> -->
+				<image class="shine" x="38.22" y="172.19" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+
+				<!-- <ellipse cx="13.096" cy="202.65" rx="6.6229" ry="6.0884" fill="#3c3698" stroke="#426478" stroke-width=".062079" style="paint-order:markers fill stroke"/> -->
+				<image class="shine" x="13.096" y="202.65" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+
+				<!-- <ellipse cx="47.307" cy="225.37" rx="6.6229" ry="6.0884" fill="#3c3698" stroke="#426478" stroke-width=".062079" style="paint-order:markers fill stroke"/> -->
+				<image class="shine" x="47.307" y="225.37" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+
+				<!-- <ellipse cx="17.64" cy="256.64" rx="6.6229" ry="6.0884" fill="#3c3698" stroke="#426478" stroke-width=".062079" style="paint-order:markers fill stroke"/> -->
+				<image class="shine" x="17.64" y="256.64" width="23.636" height="23.636" preserveAspectRatio="none" xlink:href="./assets/images/location/loc-schema/star1.svg"/>
+
+
+				<!-- numbers -->
+				<!-- <ellipse cx="28.598" cy="101.09" rx="6.4338" ry="6.701" fill="#f43698" stroke="#426478" stroke-width=".70763" style="paint-order:markers fill stroke"/> -->
+				<text class="number"  x="28.598" y="101.09" >10</text>
+				<!-- <rect x="38.487" y="98.151" width="25.391" height="4.8109" fill="#f43616" stroke="#426478" stroke-width=".21167" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="38.487" y="98.151" >хвилин на авто</text>
+					<!-- <rect x="38.487" y="102.96" width="25.391" height="4.8109" fill="#f43616" stroke="#426478" stroke-width=".21167" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="38.487" y="102.96" >до пущі водиці</text>
+
+
+				<!-- <ellipse cx="59.868" cy="126.75" rx="6.4338" ry="6.701" fill="#f43698" stroke="#426478" stroke-width=".70763" style="paint-order:markers fill stroke"/> -->
+				<text class="number"  x="59.868" y="126.75" >5</text>
+				<!-- <rect x="66.658" y="122.18" width="14.218" height="4.8633" fill="#f43616" stroke="#426478" stroke-width=".15925" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="66.658" y="122.18" >Хвилин</text>
+					<!-- <rect x="66.658" y="127.04" width="14.218" height="4.8109" fill="#f43616" stroke="#426478" stroke-width=".15839" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="66.658" y="127.04" >до метро</text>
+
+
+				<!-- <ellipse cx="18.442" cy="147.33" rx="6.4338" ry="6.701" fill="#f43698" stroke="#426478" stroke-width=".70763" style="paint-order:markers fill stroke"/> -->
+				<text class="number"  x="18.442" y="147.33" >3</text>
+				<!-- <rect x="25.013" y="142.27" width="37.907" height="4.7651" fill="#f43616" stroke="#426478" stroke-width=".25739" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="25.013" y="142.27" >хвилин до трц "караван",</text>
+					<!-- <rect x="25.013" y="147.04" width="37.907" height="4.8109" fill="#f43616" stroke="#426478" stroke-width=".25863" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="25.013" y="147.04" >гіпермаркету "ашан"</text>
+
+
+				<!-- <ellipse cx="44.901" cy="178.07" rx="6.4338" ry="6.701" fill="#f43698" stroke="#426478" stroke-width=".70763" style="paint-order:markers fill stroke"/> -->
+				<text class="number"  x="44.901" y="178.07" >12</text>
+				<!-- <rect x="54.924" y="173.79" width="25.391" height="4.8109" fill="#f43616" stroke="#426478" stroke-width=".21167" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="54.924" y="173.79" >хвилин до</text>
+					<!-- <rect x="54.924" y="178.6" width="25.391" height="4.8109" fill="#f43616" stroke="#426478" stroke-width=".21167" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="54.924" y="178.6" >вишгородської</text>
+					<!-- <rect x="54.924" y="183.41" width="25.391" height="4.8109" fill="#f43616" stroke="#426478" stroke-width=".21167" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="54.924" y="183.41" >набережної</text>
+
+
+				<!-- <ellipse cx="17.105" cy="208.27" rx="6.4338" ry="6.701" fill="#f43698" stroke="#426478" stroke-width=".70763" style="paint-order:markers fill stroke"/> -->
+				<text class="number"  x="17.105" y="208.27" >7</text>
+				<!-- <rect x="24.722" y="203.19" width="25.391" height="4.8109" fill="#f43616" stroke="#426478" stroke-width=".21167" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="24.722" y="203.19" >хвилин до ринку та</text>
+					<!-- <rect x="24.722" y="208" width="25.391" height="4.8109" fill="#f43616" stroke="#426478" stroke-width=".21167" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="24.722" y="208" >автостанції "полісся"</text>
+
+
+
+				<!-- <ellipse cx="51.583" cy="230.98" rx="6.4338" ry="6.701" fill="#f43698" stroke="#426478" stroke-width=".70763" style="paint-order:markers fill stroke"/> -->
+				<text class="number"  x="51.583" y="230.98" >7</text>
+				<!-- <rect x="59.19" y="226.43" width="20.6" height="4.8315" fill="#f43616" stroke="#426478" stroke-width=".19107" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="59.19" y="226.43" >Хвилин</text>
+					<!-- <rect x="59.19" y="231.26" width="20.6" height="4.8109" fill="#f43616" stroke="#426478" stroke-width=".19066" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="59.19" y="231.26" >виїзду з міста</text>
+
+
+				<!-- <ellipse cx="21.649" cy="262.52" rx="6.4338" ry="6.701" fill="#f43698" stroke="#426478" stroke-width=".70763" style="paint-order:markers fill stroke"/> -->
+				<text class="number"  x="21.649" y="262.52" >3</text>
+				<!-- <rect x="28.999" y="258.25" width="25.391" height="4.8109" fill="#f43616" stroke="#426478" stroke-width=".21167" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="28.999" y="258.25" >Хвилин до будівельних</text>
+					<!-- <rect x="28.999" y="263.06" width="25.391" height="4.8109" fill="#f43616" stroke="#426478" stroke-width=".21167" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="28.999" y="263.06" >гіпермаркетів "епіцентр"</text>
+					<!-- <rect x="28.999" y="267.87" width="25.391" height="4.8109" fill="#f43616" stroke="#426478" stroke-width=".21167" style="paint-order:markers fill stroke"/> -->
+					<text class="text"  x="28.999" y="267.87" >та «Leroy Merlin« на Полярній</text>
+				</g>
+				</svg>
 			.location-bottom-block 
 				.location-bottom-block__title Зручно під'їхати в ТРЦ Dream Town
 				.location-bottom-block__description
@@ -185,7 +289,7 @@ block content
 						span.current 01
 						span.max 05
 					.text 
-						ul
+						ul.plan-list
 							li.flat-type Квартири 2А
 							li.square Загальна площа: 
 								span.bold 38.4 m2
@@ -205,56 +309,80 @@ block content
 						span.current 02
 						span.max 05
 					.text 
-						ul
+						ul.plan-list
 							li.flat-type Квартири 2А
-							li.square Загальна площа
-							li.square Житлова площа
-							li.room-type Передпокій
-							li.room-type Кухня
-							li.room-type Вітальня
-							li.room-type Лоджія
+							li.square Загальна площа: 
+								span.bold 38.4 m2
+							li.square Житлова площа: 
+								span.bold 38.4 m2
+							li.room-type Передпокій: 
+								span.bold 38.4 m2
+							li.room-type Кухня: 
+								span.bold 38.4 m2
+							li.room-type Вітальня: 
+								span.bold 38.4 m2
+							li.room-type Лоджія: 
+								span.bold 38.4 m2
 					img(src="./assets/images/plans/flat.png")
 				.slide 
 					.about-project__counter 
 						span.current 03
 						span.max 05
 					.text 
-						ul
+						ul.plan-list
 							li.flat-type Квартири 2А
-							li.square Загальна площа
-							li.square Житлова площа
-							li.room-type Передпокій
-							li.room-type Кухня
-							li.room-type Вітальня
-							li.room-type Лоджія
+							li.square Загальна площа: 
+								span.bold 38.4 m2
+							li.square Житлова площа: 
+								span.bold 38.4 m2
+							li.room-type Передпокій: 
+								span.bold 38.4 m2
+							li.room-type Кухня: 
+								span.bold 38.4 m2
+							li.room-type Вітальня: 
+								span.bold 38.4 m2
+							li.room-type Лоджія: 
+								span.bold 38.4 m2
 					img(src="./assets/images/plans/flat.png")
 				.slide 
 					.about-project__counter 
 						span.current 04
 						span.max 05
 					.text 
-						ul
+						ul.plan-list
 							li.flat-type Квартири 2А
-							li.square Загальна площа
-							li.square Житлова площа
-							li.room-type Передпокій
-							li.room-type Кухня
-							li.room-type Вітальня
-							li.room-type Лоджія
+							li.square Загальна площа: 
+								span.bold 38.4 m2
+							li.square Житлова площа: 
+								span.bold 38.4 m2
+							li.room-type Передпокій: 
+								span.bold 38.4 m2
+							li.room-type Кухня: 
+								span.bold 38.4 m2
+							li.room-type Вітальня: 
+								span.bold 38.4 m2
+							li.room-type Лоджія: 
+								span.bold 38.4 m2
 					img(src="./assets/images/plans/flat.png")
 				.slide 
 					.about-project__counter 
 						span.current 05
 						span.max 05
 					.text 
-						ul
+						ul.plan-list
 							li.flat-type Квартири 2А
-							li.square Загальна площа
-							li.square Житлова площа
-							li.room-type Передпокій
-							li.room-type Кухня
-							li.room-type Вітальня
-							li.room-type Лоджія
+							li.square Загальна площа: 
+								span.bold 38.4 m2
+							li.square Житлова площа: 
+								span.bold 38.4 m2
+							li.room-type Передпокій: 
+								span.bold 38.4 m2
+							li.room-type Кухня: 
+								span.bold 38.4 m2
+							li.room-type Вітальня: 
+								span.bold 38.4 m2
+							li.room-type Лоджія: 
+								span.bold 38.4 m2
 					img(src="./assets/images/plans/flat.png")
 			.navigation-box 
 				div(class="navigation-box__item  previous")

@@ -11,10 +11,18 @@
             input(type="text", placeholder="Телефон:*" name="telephone")
             .line
             span.popup-help Телефон:*
-        input(type="radio" name="checkedtime") 
-        label Вказати зручний час
-        input(type="radio" name="randomtime") 
-        label Зателефонуйте зараз
+        .radio-group
+            input(class="checkedtimeRadio" type="radio" name="checkedtime") 
+            label(for="radio") Вказати зручний час
+            select(class="checkedtime")
+                option(value="1") 1
+                option(value="1") 1
+                option(value="1") 1
+                option(value="1") 1
+                option(value="1") 1
+        .radio-group
+            input(type="radio" name="checkedtime") 
+            label(for="radio") Зателефонуйте зараз
         button(type="button" class="read-more-block  send-form")
             img(class="read-more-block__icon" src="./assets/images/common/read-more-icon.svg", alt="read-more")
             span(class="read-more-block__text read-more-block__text_dark ") Відправити

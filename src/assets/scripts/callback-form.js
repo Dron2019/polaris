@@ -1,48 +1,67 @@
 let popupForm = () => {
-    let container = document.querySelectorAll('.popup-container');
+    let container = document.querySelector('.popup-container');
     document.querySelector('.form-telephone .close').addEventListener('click', () => {
-        container[0].style.visibility = 'hidden';
+        container.style.visibility = 'hidden';
         document.querySelector('.form-telephone').insertAdjacentElement('beforeEnd', document.querySelector('#tel-form'));
-
-        container[0].querySelector('.popup-content').innerHTML = ''
+        container.querySelector('.popup-content').innerHTML = '';
     })
-    container[0].querySelector('.popup-content').appendChild(document.querySelector('#tel-form'));
-
-    container[0].style.visibility = 'visible';
+    container.querySelector('.popup-content').appendChild(document.querySelector('#tel-form'));
+    container.style.visibility = 'visible';
     return
 };
-
+emailExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+telExpression = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
 let formValid = (form) => {
     let name = form.querySelector('[name=name]'),
         email = form.querySelector('[name=email]'),
         message = form.querySelector('textarea'),
-        radio = form.querySelectorAll('input[name=checkedtime]');
+        tel = form.querySelector('[name=telephone]'),
+        radio = form.querySelector('[name=checkedtime]'),
+        responseSpan = form.querySelector('.response-span');
     let finalObject = {};
-    radio.forEach(e => {
-        e.checked ? finalObject.radio = e.value : null;
-    })
-
-
-
-
-    emailExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    telExpression = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+    if (radio) {
+        radio.checked ? finalObject.time = form.querySelector('select').value : finalObject.time = form.querySelector('select ').value;
+    }
     if (email && email.value.match(emailExpression)) {
         finalObject.email = email.value;
-        console.log(true);
     }
     if (form.querySelector('textarea')) {
         finalObject.message = message.value;
     }
-    if (form.querySelector('[name=telephone]') && form.querySelector('[name=telephone]').value.match(telExpression)) {
-        finalObject.tel = form.querySelector('[name=telephone]').value;
+    if (tel && tel.value.match(telExpression)) {
+        finalObject.tel = tel.value;
     };
-    !name.value ? name.classList.add('invalid') : finalObject.name = name.value;
+    if (name.value) {
+        finalObject.name = name.value;
+    }
+    // !name.value ? form.querySelector(`${name.tagName}~.line`).classList.add('invalid') : finalObject.name = name.value;
     // !message.value ? null : finalObject.message = message.value;
-    if (finalObject.name && finalObject.email) {
-
-    };
-    console.log(finalObject);
+    // console.log(form.querySelector(`${name.tagName}~.line`));
+    // console.log(finalObject);
+    if (finalObject.name) {
+        // let response = sendForm(finalObject, './inc/form.php');
+        // console.log(response);
+        let data = new FormData();
+        for (const key in finalObject) {
+            data.append(key, finalObject[key]);
+        };
+        let request = new XMLHttpRequest();
+        request.open('POST', './inc/form.php');
+        request.send(data);
+        request.onload = () => {
+            response = request.responseText;
+            if (response == 'succes') {
+                form.querySelector('.send-form').setAttribute('disabled', '');
+                responseSpan.innerHTML = 'Ваше сообщение отправлено';
+                formReset(form);
+            } else {
+                responseSpan.innerHTML = 'Ошибка отправки';
+                console.log('fail');
+            }
+        }
+    } else {
+        responseSpan.innerHTML = 'Необходимо заполнить все поля';
+    }
 };
 
 
@@ -50,17 +69,119 @@ let readMoreList = document.querySelectorAll('.form-js');
 readMoreList.forEach(e => {
     console.log(e);
     e.addEventListener('click', function(i) {
-        if (e.tagName == 'BUTTON') {
-            formValid(e.parentElement)
-            return
-        } else {
-            i.preventDefault();
-            popupForm();
-        }
+        i.preventDefault();
+        popupForm();
     });
 });
 
+let formReset = (form) => {
+    form.querySelectorAll('input,textarea').forEach(item => {
+        item.innerHTML = '';
+        item.value = '';
+    })
+}
+let fieldValidation = (form) => {
+    let array = [name = form.querySelector('[name=name]'),
+        email = form.querySelector('[name=email]'),
+        message = form.querySelector('textarea'),
+        tel = form.querySelector('[name=telephone]'),
+        radio = form.querySelector('input[name=checkedtime]')
+    ];
+    array.forEach(item => {
+        if (item != null) {
+            console.log(item.name)
+            item.addEventListener('blur', () => {
+                switch (item.name) {
+                    case 'name':
+                        if (!item.value.match(/[a-z]{5}/g)) {
+                            item.parentNode.querySelector('.line').classList.add('invalid');
+                            console.log(item.value.length);
+                            console.log(item.parentNode, 'parent');
+                        } else {
+                            item.parentNode.querySelector('.line').classList.remove('invalid');
+                            console.log(item.value.length);
+                        }
+                        break;
+                    case 'email':
+                        if (!item.value.match(emailExpression)) {
+                            item.parentNode.querySelector('.line').classList.add('invalid');
+                            console.log(item.value);
+                            console.log(item.name);
+                        } else {
+                            item.parentNode.querySelector('.line').classList.remove('invalid');
+                        }
+                        break;
+                    case 'telephone':
+                        if (!item.value.match(telExpression)) {
+                            item.parentNode.querySelector('.line').classList.add('invalid');
+                            console.log(item.value);
+                            console.log(item.name);
+                        } else {
+                            item.parentNode.querySelector('.line').classList.remove('invalid');
+                        }
+                        break;
+                    default:
+                        null
+                        break;
+                };
+            });
+        }
+    })
+};
 let telForm = document.querySelector('#tel-form');
+let messageForm = document.querySelector('#main-form');
+fieldValidation(telForm);
+fieldValidation(messageForm);
 telForm.querySelector('.send-form').addEventListener('click', (e) => {
     formValid(telForm);
+
 });
+messageForm.querySelector('.send-form').addEventListener('click', (e) => {
+
+    formValid(messageForm);
+});
+
+let sendForm = (object, url) => {
+        let data = new FormData();
+        let finalResponse = false;
+        for (const key in object) {
+            data.append(key, object[key]);
+        };
+        let request = new XMLHttpRequest();
+        request.open('POST', url);
+        request.send(data);
+        request.onload = () => {
+            console.log('a');
+            console.log(request);
+
+        }
+    }
+    // let sendForm = (object, url) => {
+    //     let data = new FormData();
+    //     let finalResponse = false;
+    //     for (const key in object) {
+    //         data.append(key, object[key]);
+    //     };
+    //     console.log(data);
+    //     finalResponse = fetch(url, {
+    //             method: 'POST',
+    //             body: data,
+    //         })
+    //         .then(response => {
+    //             return response.text();
+    //         })
+    //         .then(text => {
+    //             console.log(text);
+    //             if (text != 1) {
+    //                 return false;
+
+//             } else {
+//                 finalResponse = text;
+//                 console.log(finalResponse);
+//                 return finalResponse;
+//             }
+//         });
+//     console.log(finalResponse);
+
+//     return finalResponse;
+// }

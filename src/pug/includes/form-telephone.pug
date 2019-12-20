@@ -15,14 +15,18 @@
             input(class="checkedtimeRadio" type="radio" name="checkedtime") 
             label(for="radio") Вказати зручний час
             select(class="checkedtime")
-                option(value="1") 1
-                option(value="1") 1
-                option(value="1") 1
-                option(value="1") 1
-                option(value="1") 1
+                option(value="") Оберіть зручний час
+                option(value="10:00") 9:00
+                option(value="10:00") 10:00
+                option(value="11:00") 11:00
+                option(value="12:00") 12:00
+                option(value="13:00") 13:00
+                option(value="14:00") 14:00
+                option(value="15:00") 15:00
         .radio-group
             input(type="radio" name="checkedtime") 
             label(for="radio") Зателефонуйте зараз
+        .response-span
         button(type="button" class="read-more-block  send-form")
             img(class="read-more-block__icon" src="./assets/images/common/read-more-icon.svg", alt="read-more")
             span(class="read-more-block__text read-more-block__text_dark ") Відправити

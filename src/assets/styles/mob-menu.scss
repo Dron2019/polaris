@@ -2,7 +2,7 @@
     position: fixed;
     width: 100vw;
     height: calc(100vw / 768 * 600);
-    top: 0;
+    top: 100px;
     left: 0;
     background: url(../images/common/mob-menu-bg.png) center no-repeat;
     background-size: cover;
@@ -19,6 +19,7 @@
     }
     transform-origin: top right;
     @include to(475px) {
+        top: 74px;
         height: 100vh;
         background: url(../images/location/loc-bg.png) center no-repeat;
     }

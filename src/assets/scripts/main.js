@@ -138,7 +138,7 @@ class DXslider {
     }
 
     slide() {
-        console.log(document.querySelectorAll('.time-block__item'));
+        // console.log(document.querySelectorAll('.time-block__item'));
 
         this.prevElement.classList.remove('time-block__item-active');
         document.querySelectorAll('.time-block__item')[this.counter].classList.add('time-block__item-active');
@@ -210,17 +210,23 @@ let changeMainImages = () => {
     let mainScreenBg = document.querySelectorAll('.lighten img');
     if (window.screen.width <= 769) {
         mainScreenImg.forEach(img => {
-            console.log(mainScreenImg);
-            console.log(img.src.match(/main-screen/));
-
+            // console.log(mainScreenImg);
+            // console.log(img.src.match(/main-screen/));
             img.src = img.src.replace('main-screen', 'main-screen/mobile')
         });
         mainScreenBg.forEach(img => {
-            console.log(mainScreenImg);
-            console.log(img.src.match(/main-screen/));
-
+            // console.log(mainScreenImg);
+            // console.log(img.src.match(/main-screen/));
             img.src = img.src.replace('main-screen', 'main-screen/mobile')
         });
     }
-
 };
+
+document.querySelectorAll('.menu-list__item').forEach(item => {
+    item.onclick = () => {
+        document.querySelector('main').classList.add('fadeIn');
+        setTimeout(() => {
+            document.querySelector('main').classList.remove('fadeIn');
+        }, 1000);
+    }
+})

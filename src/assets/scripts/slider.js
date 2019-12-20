@@ -12,7 +12,7 @@ title = container.querySelector('.about-project-text__title'),
 indicator.querySelector('.max').innerHTML = slides.length;
 let slide = (slides, arrows) => {
     arrows.querySelector('.next').addEventListener('click', function() {
-        img.parentNode.style.background = `url(./assets/images/about/${slides[prevCount].dataset.img}) 0 0 `;
+        // img.parentNode.style.background = `url(./assets/images/about/${slides[prevCount].dataset.img}) 0 0 `;
         switchText(title, 'textFlipUp', 'title');
         switchText(text, 'textFlipUp', 'text');
         switchText(secondTitle, 'textFlipUp', 'secondtitle');
@@ -23,7 +23,7 @@ let slide = (slides, arrows) => {
         console.log(counter)
     });
     arrows.querySelector('.previous').addEventListener('click', function() {
-        img.parentNode.style.background = `url(./assets/images/about/${slides[prevCount].dataset.img}) 0 0 `;
+        // img.parentNode.style.background = `url(./assets/images/about/${slides[prevCount].dataset.img}) 0 0 `;
         switchText(title, 'textFlipDown', 'title');
         switchText(text, 'textFlipDown', 'text');
         switchText(secondTitle, 'textFlipDown', 'secondtitle');
@@ -38,7 +38,8 @@ let slide = (slides, arrows) => {
         elem.classList.add(className);
         setTimeout(() => {
             elem.setAttribute('src', `./assets/images/about/${slides[counter].dataset.img}`);
-        }, 400);
+            // elem.classList.add('fadeIn');
+        }, 900);
         elem.addEventListener('animationend', function() {
 
             elem.innerHTML = slides[counter].dataset[datasetName];

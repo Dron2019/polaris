@@ -34,13 +34,7 @@ let formValid = (form) => {
     if (name.value) {
         finalObject.name = name.value;
     }
-    // !name.value ? form.querySelector(`${name.tagName}~.line`).classList.add('invalid') : finalObject.name = name.value;
-    // !message.value ? null : finalObject.message = message.value;
-    // console.log(form.querySelector(`${name.tagName}~.line`));
-    // console.log(finalObject);
     if (finalObject.name) {
-        // let response = sendForm(finalObject, './inc/form.php');
-        // console.log(response);
         let data = new FormData();
         for (const key in finalObject) {
             data.append(key, finalObject[key]);
@@ -65,7 +59,7 @@ let formValid = (form) => {
 };
 let readMoreList = document.querySelectorAll('.form-js');
 readMoreList.forEach(e => {
-    // console.log(e);
+
     e.addEventListener('click', function(i) {
         i.preventDefault();
         popupForm();
@@ -160,32 +154,3 @@ let inputDefaultText = (form) => {
     })
 };
 inputDefaultText('#tel-form');
-// let sendForm = (object, url) => {
-//     let data = new FormData();
-//     let finalResponse = false;
-//     for (const key in object) {
-//         data.append(key, object[key]);
-//     };
-//     console.log(data);
-//     finalResponse = fetch(url, {
-//             method: 'POST',
-//             body: data,
-//         })
-//         .then(response => {
-//             return response.text();
-//         })
-//         .then(text => {
-//             console.log(text);
-//             if (text != 1) {
-//                 return false;
-
-//             } else {
-//                 finalResponse = text;
-//                 console.log(finalResponse);
-//                 return finalResponse;
-//             }
-//         });
-//     console.log(finalResponse);
-
-//     return finalResponse;
-// }

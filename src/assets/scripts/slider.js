@@ -73,10 +73,11 @@ let slide = (slides, arrows) => {
         subtree: true
     });
 };
-console.log(img.parentNode);
+// console.log(img.parentNode);
 
 slide(slides, arrows);
 
+/*Слайдер планировок */
 $('.slider-js').slick({
     dots: true,
     nextArrow: $('.plans .next'),

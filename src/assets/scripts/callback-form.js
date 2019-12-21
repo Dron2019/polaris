@@ -56,18 +56,16 @@ let formValid = (form) => {
                 formReset(form);
             } else {
                 responseSpan.innerHTML = 'Ошибка отправки';
-                console.log('fail');
+                // console.log('fail');
             }
         }
     } else {
         responseSpan.innerHTML = 'Необходимо заполнить все поля';
     }
 };
-
-
 let readMoreList = document.querySelectorAll('.form-js');
 readMoreList.forEach(e => {
-    console.log(e);
+    // console.log(e);
     e.addEventListener('click', function(i) {
         i.preventDefault();
         popupForm();
@@ -89,24 +87,24 @@ let fieldValidation = (form) => {
     ];
     array.forEach(item => {
         if (item != null) {
-            console.log(item.name)
+            // console.log(item.name)
             item.addEventListener('blur', () => {
                 switch (item.name) {
                     case 'name':
                         if (!item.value.match(/[a-z]{5}/g)) {
                             item.parentNode.querySelector('.line').classList.add('invalid');
-                            console.log(item.value.length);
-                            console.log(item.parentNode, 'parent');
+                            // console.log(item.value.length);
+                            // console.log(item.parentNode, 'parent');
                         } else {
                             item.parentNode.querySelector('.line').classList.remove('invalid');
-                            console.log(item.value.length);
+                            // console.log(item.value.length);
                         }
                         break;
                     case 'email':
                         if (!item.value.match(emailExpression)) {
                             item.parentNode.querySelector('.line').classList.add('invalid');
-                            console.log(item.value);
-                            console.log(item.name);
+                            // console.log(item.value);
+                            // console.log(item.name);
                         } else {
                             item.parentNode.querySelector('.line').classList.remove('invalid');
                         }
@@ -114,8 +112,8 @@ let fieldValidation = (form) => {
                     case 'telephone':
                         if (!item.value.match(telExpression)) {
                             item.parentNode.querySelector('.line').classList.add('invalid');
-                            console.log(item.value);
-                            console.log(item.name);
+                            // console.log(item.value);
+                            // console.log(item.name);
                         } else {
                             item.parentNode.querySelector('.line').classList.remove('invalid');
                         }
@@ -137,43 +135,49 @@ telForm.querySelector('.send-form').addEventListener('click', (e) => {
 
 });
 messageForm.querySelector('.send-form').addEventListener('click', (e) => {
-
     formValid(messageForm);
 });
 
 let sendForm = (object, url) => {
-        let data = new FormData();
-        let finalResponse = false;
-        for (const key in object) {
-            data.append(key, object[key]);
-        };
-        let request = new XMLHttpRequest();
-        request.open('POST', url);
-        request.send(data);
-        request.onload = () => {
-            console.log('a');
-            console.log(request);
+    let data = new FormData();
+    let finalResponse = false;
+    for (const key in object) {
+        data.append(key, object[key]);
+    };
+    let request = new XMLHttpRequest();
+    request.open('POST', url);
+    request.send(data);
+    request.onload = () => {
+        // console.log('a');
+        // console.log(request);
 
-        }
     }
-    // let sendForm = (object, url) => {
-    //     let data = new FormData();
-    //     let finalResponse = false;
-    //     for (const key in object) {
-    //         data.append(key, object[key]);
-    //     };
-    //     console.log(data);
-    //     finalResponse = fetch(url, {
-    //             method: 'POST',
-    //             body: data,
-    //         })
-    //         .then(response => {
-    //             return response.text();
-    //         })
-    //         .then(text => {
-    //             console.log(text);
-    //             if (text != 1) {
-    //                 return false;
+};
+
+let inputDefaultText = (form) => {
+    document.querySelector(form).querySelector('input[name=telephone]').addEventListener('focus', e => {
+        e.target.value = '+(380)';
+    })
+};
+inputDefaultText('#tel-form');
+// let sendForm = (object, url) => {
+//     let data = new FormData();
+//     let finalResponse = false;
+//     for (const key in object) {
+//         data.append(key, object[key]);
+//     };
+//     console.log(data);
+//     finalResponse = fetch(url, {
+//             method: 'POST',
+//             body: data,
+//         })
+//         .then(response => {
+//             return response.text();
+//         })
+//         .then(text => {
+//             console.log(text);
+//             if (text != 1) {
+//                 return false;
 
 //             } else {
 //                 finalResponse = text;

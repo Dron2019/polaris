@@ -19,7 +19,7 @@ window.onload = function() {
 
 
     var slider = new DXslider(property);
-    console.log(slider);
+    // console.log(slider);
 
     slider.init();
     document.querySelectorAll('.time-block__item')[0].classList.add('time-block__item-active');
@@ -93,15 +93,16 @@ class DXslider {
 
     settingStyle() {
         this.imagesWidth = this.images.offsetWidth;
-        this.width = this.lightenImages[0].width;
+        // this.width = this.lightenImages[0].width;
+        this.width = window.outerWidth;
         // this.height = this.lightenImages[0].height;
-        this.height = window.screen.height;
+        this.height = window.outerHeight;
         this.dpi = this.width / this.imagesWidth;
 
         //this.images.style.height = this.canvasBox.style.height = this.imagesWidth * this.height / this.width + "px";
         this.images.style.height = this.canvasBox.style.height = window.screen.height + 'px';
         // document.querySelectorAll('.main-screen-container')[0].style.height = this.canvasBox.style.height = this.imagesWidth * this.height / this.width + "px";
-        document.querySelectorAll('.main-screen-container')[0].style.height = window.screen.height;
+        document.querySelectorAll('.main-screen-container')[0].style.height = window.outerHeight;
         this.preButton.classList.add("after-loading");
         this.nextButton.classList.add("after-loading");
     }
@@ -113,11 +114,13 @@ class DXslider {
             this.canvasBox.appendChild(canvas);
             context = canvas.getContext("2d");
 
-            canvas.width = this.width;
-            canvas.height = this.height;
-            canvas.style.width = this.imagesWidth + "px";
+            canvas.width = window.outerWidth;
+            // canvas.height = this.height;
+            canvas.height = window.screen.height - 100;
+            // canvas.style.width = this.imagesWidth + "px";
             // canvas.style.height = this.imagesWidth * this.height / this.width + "px";
-            canvas.style.height = window.screen.height + 'px';
+            canvas.style.height = window.outerHeight - 100 + 'px';
+            canvas.style.width = window.outerWidth + 'px';
 
             //add images(lighten and normal) into canvasArray
             n = i % (len / 2);
@@ -129,8 +132,6 @@ class DXslider {
                 normal: normal,
                 lighten: lighten
             });
-
-
         }
 
         this.render(this.progress, -this.imagesWidth);
@@ -177,24 +178,37 @@ class DXslider {
             this.animating = false;
             time = duration;
             this.left = true;
-            this.render(0, -this.imagesWidth);
+            this.render(0, -this.width);
             this.timer = setTimeout(this.slide.bind(this), this.interval);
+
+
         }
+
     }
 
     render(progress, position) {
         for (var i = 0, len = this.canvasArray.length; i < len; i++) {
             var canvas = this.canvasArray[i].canvas;
-            canvas.style.setProperty("-webkit-transform", "translate(" + (progress * position - (len / 2 - i) * this.imagesWidth) + "px, 0)");
-            canvas.style.transform = "translate(" + (progress * position - (len / 2 - i) * this.imagesWidth) + "px, 0)";
+            canvas.style.setProperty("-webkit-transform", "translate(" + (progress * position - (len / 2 - i) * window.outerWidth) + "px, 0)");
+            canvas.style.transform = "translate(" + (progress * position - (len / 2 - i) * window.outerWidth) + "px, 0)";
 
-            var context = this.canvasArray[i].context;
+            // var context = this.canvasArray[i].context;
 
-            context.clearRect(0, 0, this.width, this.height);
-            context.globalCompositeOperation = "lighten";
-            context.drawImage(this.canvasArray[i].lighten, ((len / 2 - i) * this.imagesWidth - progress * position) * this.dpi * this.paraEffect, 0, this.width, this.height);
-            context.globalCompositeOperation = "source-over";
-            context.drawImage(this.canvasArray[i].normal, 0, 0, this.width, this.height);
+
+            // context.clearRect(0, 0, this.width, this.height);
+            // context.globalCompositeOperation = "lighten";
+            // context.drawImage(this.canvasArray[i].lighten, ((len / 2 - i) * this.imagesWidth - progress * position) * this.dpi * this.paraEffect, 0, this.width, this.height);
+            // context.globalCompositeOperation = "source-over";
+            // context.drawImage(this.canvasArray[i].normal, 0, 0, this.width, this.height);
+            canvas.style.background = `url(${this.canvasArray[i].normal.src})`;
+
+            // setTimeout(() => {
+            //     console.log(i);
+
+
+            // }, this.interval - 200);
+            // this.canvasBox.style.background = `url(${this.canvasArray[i].lighten.src})`;
+            // canvas.style.background = `url(${this.canvasArray[i].normal.src}),url(${this.canvasArray[0].lighten.src})`;
         }
     }
 }

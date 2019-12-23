@@ -11,17 +11,6 @@ title = container.querySelector('.about-project-text__title'),
     indicator = document.querySelector('.about-project__counter ');
 indicator.querySelector('.max').innerHTML = slides.length;
 let slide = (slides, arrows) => {
-    arrows.querySelector('.next').addEventListener('click', function() {
-        // img.parentNode.style.background = `url(./assets/images/about/${slides[prevCount].dataset.img}) 0 0 `;
-        switchText(title, 'textFlipUp', 'title');
-        switchText(text, 'textFlipUp', 'text');
-        switchText(secondTitle, 'textFlipUp', 'secondtitle');
-        switchText(secondText, 'textFlipUp', 'secondtext');
-        switchText(img, 'imgFlipUp', 'img');
-        prevCount = counter;
-        counter = checkCounter(counter);
-        console.log(counter)
-    });
     arrows.querySelector('.previous').addEventListener('click', function() {
         // img.parentNode.style.background = `url(./assets/images/about/${slides[prevCount].dataset.img}) 0 0 `;
         switchText(title, 'textFlipDown', 'title');
@@ -29,7 +18,18 @@ let slide = (slides, arrows) => {
         switchText(secondTitle, 'textFlipDown', 'secondtitle');
         switchText(secondText, 'textFlipDown', 'secondtext');
         switchText(img, 'imgFlipDown', 'img');
-        console.log(counter);
+        prevCount = counter;
+        counter = checkCounter(counter);
+        // console.log(counter)
+    });
+    arrows.querySelector('.next').addEventListener('click', function() {
+        // img.parentNode.style.background = `url(./assets/images/about/${slides[prevCount].dataset.img}) 0 0 `;
+        switchText(title, 'textFlipUp', 'title');
+        switchText(text, 'textFlipUp', 'text');
+        switchText(secondTitle, 'textFlipUp', 'secondtitle');
+        switchText(secondText, 'textFlipUp', 'secondtext');
+        switchText(img, 'imgFlipUp', 'img');
+        // console.log(counter);
         prevCount = counter;
         counter = checkCounterMinus(counter);
     });
@@ -39,10 +39,14 @@ let slide = (slides, arrows) => {
         setTimeout(() => {
             elem.setAttribute('src', `./assets/images/about/${slides[counter].dataset.img}`);
             // elem.classList.add('fadeIn');
+
         }, 900);
+        setTimeout(() => {
+            elem.innerHTML = slides[counter].dataset[datasetName];
+        }, 850);
         elem.addEventListener('animationend', function() {
 
-            elem.innerHTML = slides[counter].dataset[datasetName];
+            // elem.innerHTML = slides[counter].dataset[datasetName];
             elem.classList.remove(className);
         });
     };

@@ -95,28 +95,36 @@
 
 @keyframes menuOpen {
     from {
-        transform: scale(0);
+        -webkit-transform: translateY(-110%);
+        transform: translateY(-110%);
+        opacity: 0
     }
     to {
-        transform: scale(1)
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1
     }
 }
 
 @keyframes menuClose {
     from {
-        transform: scale(1);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1
     }
     to {
-        transform: scale(0)
+        -webkit-transform: translateY(-110%);
+        transform: translateY(-110%);
+        opacity: 0
     }
 }
 
 .menuOpen {
-    animation: menuOpen 1s 1 linear;
+    animation: menuOpen .5s 1 linear;
 }
 
 .menuClose {
-    animation: menuClose 1s 1 linear;
+    animation: menuClose .5s 1 linear;
 }
 
 .opened {

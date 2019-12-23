@@ -4,11 +4,8 @@ Then I use this technique with canvas blend modes.
 */
 
 window.onload = function() {
-
-
     var loading = document.getElementById("loading");
     loading.classList.add("loading-done");
-
     var property = {
         element: "#images",
         parallax: .6,
@@ -23,8 +20,10 @@ window.onload = function() {
 
     slider.init();
     document.querySelectorAll('.time-block__item')[0].classList.add('time-block__item-active');
+    document.querySelectorAll('.time-block__item svg circle')[0].classList.add('time-block__item-active');
     this.setTimeout(() => {
         document.querySelectorAll('.time-block__item')[0].classList.remove('time-block__item-active');
+        document.querySelectorAll('.time-block__item svg circle')[0].classList.remove('time-block__item-active');
     }, 2200)
     let observer = slider.canvasBox;
     let sliderInd = document.querySelectorAll('.time-block');
@@ -49,6 +48,7 @@ class DXslider {
         this.images.appendChild(this.canvasBox);
         this.canvasBox.classList.add("canvas");
         this.counter = 1;
+        this.dots = document.querySelectorAll('.time-block .time-block__item');
         this.maxCounter = document.querySelectorAll('.time-block').length;
         this.prevElement = document.querySelectorAll('.time-block__item')[this.counter];
     }
@@ -57,40 +57,29 @@ class DXslider {
         changeMainImages();
         this.settingStyle();
         this.settingCanvas();
-
-        this.preButton.addEventListener("click", function(e) {
-            if (!this.animating) {
-                this.left = false;
-                clearTimeout(this.timer);
-                this.slide();
-            }
-        }.bind(this), false);
-
-        this.preButton.addEventListener("touchend", function(e) {
-            if (!this.animating) {
-                this.left = false;
-                clearTimeout(this.timer);
-                this.slide();
-            }
-        }.bind(this), false);
-
-        this.nextButton.addEventListener("click", function(e) {
-            if (!this.animating) {
-                this.left = true;
-                clearTimeout(this.timer);
-                this.slide();
-            }
-        }.bind(this), false);
-
-        this.nextButton.addEventListener("touchend", function(e) {
-            if (!this.animating) {
-                this.left = true;
-                clearTimeout(this.timer);
-                this.slide();
-            }
-        }.bind(this), false);
+        this.dotsSetup();
     }
-
+    dotsSetup() {
+        this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                this.interval = 300000;
+                this.canvasBox.querySelectorAll('canvas').forEach(image => {
+                    image.style.transform = 'translate(-100% , 0)';
+                })
+                this.dots.forEach(dot => {
+                    dot.classList.remove('time-block__item-active');
+                    dot.querySelector('svg circle').classList.remove('time-block__item-active');
+                });
+                this.canvasBox.querySelectorAll('canvas')[index + 3].style.transform = 'translate(0 , 0)';
+                this.dots[index].classList.add('time-block__item-active');
+                this.dots[index].querySelector('svg circle').classList.remove('time-block__item-active');
+                this.canvasBox.querySelectorAll('canvas')[index + 3].classList.add('fadeIn');
+                setTimeout(() => {
+                    this.canvasBox.querySelectorAll('canvas')[index + 3].classList.remove('fadeIn');
+                }, 1000);
+            })
+        })
+    }
     settingStyle() {
         this.imagesWidth = this.images.offsetWidth;
         // this.width = this.lightenImages[0].width;
@@ -100,7 +89,7 @@ class DXslider {
         this.dpi = this.width / this.imagesWidth;
 
         //this.images.style.height = this.canvasBox.style.height = this.imagesWidth * this.height / this.width + "px";
-        this.images.style.height = this.canvasBox.style.height = window.screen.height + 'px';
+        this.images.style.height = this.canvasBox.style.height = window.outerHeight + 'px';
         // document.querySelectorAll('.main-screen-container')[0].style.height = this.canvasBox.style.height = this.imagesWidth * this.height / this.width + "px";
         document.querySelectorAll('.main-screen-container')[0].style.height = window.outerHeight;
         this.preButton.classList.add("after-loading");
@@ -116,10 +105,10 @@ class DXslider {
 
             canvas.width = window.outerWidth;
             // canvas.height = this.height;
-            canvas.height = window.screen.height - 100;
+            canvas.height = window.outerHeight;
             // canvas.style.width = this.imagesWidth + "px";
             // canvas.style.height = this.imagesWidth * this.height / this.width + "px";
-            canvas.style.height = window.outerHeight - 100 + 'px';
+            canvas.style.height = window.outerHeight + 'px';
             canvas.style.width = window.outerWidth + 'px';
 
             //add images(lighten and normal) into canvasArray
@@ -142,8 +131,12 @@ class DXslider {
         // console.log(document.querySelectorAll('.time-block__item'));
 
         this.prevElement.classList.remove('time-block__item-active');
+        // document.querySelectorAll('.time-block__item svg circle')[this.prevElement].classList.remove('time-block__item-active');
         document.querySelectorAll('.time-block__item')[this.counter].classList.add('time-block__item-active');
-        this.prevElement = document.querySelectorAll('.time-block__item')[this.counter];
+        // console.log(document.querySelectorAll('.time-block__item')[this.counter]);
+
+        document.querySelectorAll('.time-block__item')[this.counter].querySelector('svg circle').classList.add('time-block__item-active');
+        this.prevElement = document.querySelectorAll('.time-block__item')[this.counter].querySelector('svg circle');
         this.counter > this.maxCounter ? this.counter = 0 : this.counter++;
 
         this.left ?
@@ -222,7 +215,7 @@ function easingInOutQuad(t) {
 let changeMainImages = () => {
     let mainScreenImg = document.querySelectorAll('.normal img');
     let mainScreenBg = document.querySelectorAll('.lighten img');
-    if (window.screen.width <= 769) {
+    if (window.outerWidth <= 769) {
         mainScreenImg.forEach(img => {
             // console.log(mainScreenImg);
             // console.log(img.src.match(/main-screen/));

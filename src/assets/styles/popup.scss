@@ -10,7 +10,7 @@
     background: rgba(0, 0, 0, 0.5);
     form {
         width: 70vw;
-        height: 45vh;
+        min-height: 45vh;
     }
     @include to(475px) {
         form {

@@ -510,8 +510,10 @@
         opacity: 1;
         -webkit-transform: rotateX(0);
     }
-    100% {
+    80% {
         opacity: 0;
+    }
+    100% {
         // -webkit-transform: rotateX(-180deg);
         transform: translateY(-10%);
     }
@@ -522,8 +524,10 @@
         opacity: 1;
         -webkit-transform: rotateX(0);
     }
-    100% {
+    80% {
         opacity: 0;
+    }
+    100% {
         // -webkit-transform: rotateX(-180deg);
         transform: translateY(10%);
     }

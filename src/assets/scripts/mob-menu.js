@@ -9,7 +9,7 @@ menuButton.addEventListener('click', () => {
         setTimeout(() => {
             menu.classList.remove('opened');
             menu.classList.remove('menuClose');
-        }, 1000);
+        }, 400);
 
     })
 })

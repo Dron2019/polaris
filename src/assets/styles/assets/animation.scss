@@ -426,7 +426,7 @@
     }
     to {
         opacity: 0;
-        transform: translateY(100%) scale(1);
+        transform: translateY(-100%) scale(1);
     }
 }
 
@@ -437,7 +437,7 @@
     }
     to {
         opacity: 0;
-        transform: translateY(-100%) scale(1);
+        transform: translateY(100%) scale(1);
     }
 }
 
@@ -547,4 +547,21 @@
 
 .shine {
     animation: shine 2s infinite linear;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+.fadeInDown {
+    animation: fadeInDown 1s 1 linear;
 }

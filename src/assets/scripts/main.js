@@ -129,16 +129,20 @@ class DXslider {
 
     slide() {
         // console.log(document.querySelectorAll('.time-block__item'));
-
         this.prevElement.classList.remove('time-block__item-active');
+
+        document.querySelectorAll('.time-block__item').forEach(item => {
+            item.classList.remove('time-block__item-active')
+        });
         // document.querySelectorAll('.time-block__item svg circle')[this.prevElement].classList.remove('time-block__item-active');
         document.querySelectorAll('.time-block__item')[this.counter].classList.add('time-block__item-active');
+        setTimeout(() => {
+            document.querySelectorAll('.time-block__item')[this.counter].classList.remove('time-block__item-active');
+        }, 2200);
         // console.log(document.querySelectorAll('.time-block__item')[this.counter]);
-
         document.querySelectorAll('.time-block__item')[this.counter].querySelector('svg circle').classList.add('time-block__item-active');
         this.prevElement = document.querySelectorAll('.time-block__item')[this.counter].querySelector('svg circle');
         this.counter > this.maxCounter ? this.counter = 0 : this.counter++;
-
         this.left ?
             this.tween(-this.imagesWidth, this.duration, this.easing) :
             this.tween(this.imagesWidth, this.duration, this.easing);
@@ -173,10 +177,7 @@ class DXslider {
             this.left = true;
             this.render(0, -this.width);
             this.timer = setTimeout(this.slide.bind(this), this.interval);
-
-
         }
-
     }
 
     render(progress, position) {
@@ -194,14 +195,6 @@ class DXslider {
             // context.globalCompositeOperation = "source-over";
             // context.drawImage(this.canvasArray[i].normal, 0, 0, this.width, this.height);
             canvas.style.background = `url(${this.canvasArray[i].normal.src})`;
-
-            // setTimeout(() => {
-            //     console.log(i);
-
-
-            // }, this.interval - 200);
-            // this.canvasBox.style.background = `url(${this.canvasArray[i].lighten.src})`;
-            // canvas.style.background = `url(${this.canvasArray[i].normal.src}),url(${this.canvasArray[0].lighten.src})`;
         }
     }
 }
@@ -215,7 +208,7 @@ function easingInOutQuad(t) {
 let changeMainImages = () => {
     let mainScreenImg = document.querySelectorAll('.normal img');
     let mainScreenBg = document.querySelectorAll('.lighten img');
-    if (window.outerWidth <= 769) {
+    if (window.outerWidth <= 768) {
         mainScreenImg.forEach(img => {
             // console.log(mainScreenImg);
             // console.log(img.src.match(/main-screen/));
@@ -236,4 +229,4 @@ document.querySelectorAll('.menu-list__item').forEach(item => {
             document.querySelector('main').classList.remove('fadeIn');
         }, 1000);
     }
-})
+});

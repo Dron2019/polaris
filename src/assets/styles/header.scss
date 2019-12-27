@@ -167,7 +167,7 @@
         display: none;
     }
     @include to(475px) {
-        margin-left: 0;
+        margin-left: 6px;
         font-size: 10px;
     }
     @include from(475px) {

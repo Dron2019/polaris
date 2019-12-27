@@ -11,7 +11,7 @@
             }
             @include to(475px) {
                 top: 74px;
-                min-height: calc(100vh - 75px);
+                height: calc(100vh - 75px);
                 margin-bottom: 74px;
             }
         }
@@ -32,11 +32,6 @@
         .main-screen {
             position: relative;
             z-index: 2;
-            /*background:  url(../images/main-screen/stars.png)
-    
-    ,
-    linear-gradient(90deg, #072146 0%, rgba(7, 33, 70, 0) 88.42%),*/
-            /*url(../images/main-bg.png);*/
             padding: 0 45px;
             background-size: contain;
             color: #fff;
@@ -86,15 +81,6 @@
             }
         }
         
-        // .main-screen-slider {
-        //     position: absolute;
-        //     top: 0;
-        //     left: 0;
-        //     height: 100%;
-        //     width: 100%;
-        //     z-index: 1;
-        //     // background: linear-gradient(90deg, #072146 0%, rgba(7, 33, 70, 0) 88.42%)
-        // }
         .main-screen-slider img {
             position: absolute;
             top: 0;
@@ -158,15 +144,6 @@
             }
             @include to(768px) {
                 font-size: 12px;
-            }
-        }
-        
-        @keyframes slider-indecator {
-            from {
-                clip: rect(2, 10, 2, 10);
-            }
-            to {
-                clip: rect(0, 10, 0, 10);
             }
         }
         
@@ -343,7 +320,8 @@
         .about-project-second-text {
             grid-area: 3/3/5/5;
             background: linear-gradient(90deg, #072146 0%, #062043 100%);
-            // padding: 40px 25px 42px 50px;
+            position: relative;
+            z-index: 2;
             padding: 30px 25px 42px 30px;
             &__title {
                 font-family: $default-font2;
@@ -359,6 +337,9 @@
                 color: $mc3;
                 font-size: 14px;
                 line-height: 24px;
+                text-overflow: ellipsis;
+                max-height: calc(100% - 46px);
+                overflow: overlay;
                 @include to(768px) {
                     font-size: 12px;
                     line-height: 22px;
@@ -620,7 +601,6 @@
             @include to(768px) {
                 padding: 60px 22px 50px 22px;
                 &__single-block {
-                    &__number {}
                     &__title {
                         font-size: 18px;
                         line-height: 30px;
@@ -1595,7 +1575,8 @@
             }
             input:focus~.popup-help,
             textarea:focus~.popup-help {
-                animation: load 1s 1 linear;
+                // animation: load 1s 1 linear;
+                animation: fadeInDown .2s 1 ease-in;
                 display: initial;
             }
             input:focus::placeholder,
@@ -1894,81 +1875,6 @@
             position: relative;
             z-index: 2;
         }
-        /*SLIDER*/
-        
-        #loading {
-            color: #fff;
-            position: absolute;
-            letter-spacing: 3px;
-            width: 10em;
-            line-height: 2em;
-            top: calc(50% - 1em);
-            left: calc(50% - 5em);
-            z-index: 2;
-            text-align: center;
-        }
-        
-        .loading-done {
-            display: none;
-        }
-        
-        #images {
-            position: absolute;
-            width: 100%;
-            left: 0;
-        }
-        
-        .canvas {
-            position: relative;
-            display: block;
-            overflow: hidden;
-        }
-        
-        #images img {
-            display: none;
-            vertical-align: bottom;
-        }
-        
-        canvas {
-            vertical-align: bottom;
-            position: absolute;
-        }
-        
-        nav ul {
-            height: 0;
-            margin: 0;
-        }
-        
-        nav li {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            opacity: .3;
-            list-style: none;
-            top: calc(50% - 12px);
-            z-index: 100;
-            transition: opacity .3s;
-        }
-        
-        nav li:hover {
-            opacity: .7;
-        }
-        
-        .pre.after-loading {
-            left: -40px;
-            -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-            border-top: 2px solid #fff;
-            border-left: 2px solid #fff;
-        }
-        
-        .next.after-loading {
-            -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-            border-top: 2px solid #fff;
-            border-right: 2px solid #fff;
-            right: -40px;
-        }
         
         @include to(475px) {
             .container {
@@ -1998,5 +1904,9 @@
         .main-screen-slider .canvas {
             background-position: initial;
             transition: .75s;
-            background: url(../images/main-screen/stars1.png) center no-repeat;
+            // background: url(../images/main-screen/stars1.png) center no-repeat;
+            background: url(../images/main-screen/bg.png) center no-repeat;
+            @include to(768px) {
+                background: url(../images/main-screen/mobile/bg-mob.png) center no-repeat;
+            }
         }

@@ -1,11 +1,20 @@
 let popupForm = () => {
     let container = document.querySelector('.popup-container');
+
     document.querySelector('.form-telephone .close').addEventListener('click', () => {
-        container.style.visibility = 'hidden';
+        autoToogleClass(container, 'menuClose');
+        setTimeout(() => {
+            container.style.visibility = 'hidden';
+        }, 500);
+
         document.querySelector('.form-telephone').insertAdjacentElement('beforeEnd', document.querySelector('#tel-form'));
         container.querySelector('.popup-content').innerHTML = '';
+
     })
     container.querySelector('.popup-content').appendChild(document.querySelector('#tel-form'));
+    // container.classList.add('menuOpen');
+
+    autoToogleClass(container, 'menuOpen');
     container.style.visibility = 'visible';
     return
 };
@@ -62,7 +71,9 @@ readMoreList.forEach(e => {
 
     e.addEventListener('click', function(i) {
         i.preventDefault();
+
         popupForm();
+
     });
 });
 
@@ -154,3 +165,10 @@ let inputDefaultText = (form) => {
     })
 };
 inputDefaultText('#tel-form');
+
+function autoToogleClass(selector, class1) {
+    selector.classList.add(class1);
+    setTimeout(() => {
+        selector.classList.remove(class1);
+    }, 1000);
+};

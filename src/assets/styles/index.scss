@@ -103,7 +103,17 @@
             line-height: 20px;
             letter-spacing: 0.05em;
             color: #ffffff;
+            width: 450px;
+            margin-left: auto;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            background: linear-gradient(0deg, rgba(7, 33, 70, 0.653379) 0%, #072146 54%, #072146 87%);
+            justify-content: center;
+            padding: 10px 20px 15px 20px;
+            background: #07214694;
+            // background: linear-gradient(0deg, rgba(7, 33, 70, 0.653379) 0%, rgba(7, 33, 70, 1) 54%, rgba(7, 33, 70, 1) 87%);
             @include to(768px) {
+                width: 100%;
                 margin-left: auto;
             }
         }
@@ -249,7 +259,8 @@
             grid-template-rows: 26% 38% 15% 21%;
             padding: 0px 0 0 45px;
             @include from(768px) {
-                min-height: 70vh;
+                // min-height: 70vh;
+                min-height: calc(100vh - 100px);
             }
             .mini-title {
                 padding: 35px 0 25px 0;
@@ -1194,7 +1205,7 @@
                     position: absolute;
                     top: 0;
                     height: 50%;
-                    transform: translateY(50%);
+                    transform: translateY(105%);
                     transform-origin: center;
                     width: auto;
                     left: -30px;

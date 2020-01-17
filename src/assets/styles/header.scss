@@ -70,6 +70,8 @@
     &__item {
         margin: 0 10px;
         cursor: pointer;
+        border-bottom: 1px dashed transparent;
+        transition: .5s;
         &:hover {
             border-bottom: 1px dashed $mc5;
         }
@@ -146,6 +148,7 @@
     padding-right: 12px;
     cursor: pointer;
     transition: all .5s;
+    width: 42px;
     &:after {
         content: url(../images/common/birdy.svg);
         position: absolute;

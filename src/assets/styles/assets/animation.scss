@@ -510,7 +510,10 @@
         opacity: 1;
         -webkit-transform: rotateX(0);
     }
-    80% {
+    70% {
+        opacity: 0;
+    }
+    90% {
         opacity: 0;
     }
     100% {
@@ -524,7 +527,10 @@
         opacity: 1;
         -webkit-transform: rotateX(0);
     }
-    80% {
+    70% {
+        opacity: 0;
+    }
+    90% {
         opacity: 0;
     }
     100% {

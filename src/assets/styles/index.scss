@@ -888,6 +888,17 @@
                     color: $mc;
                     font-weight: normal;
                 }
+                .read-more-block {
+                    margin-top: 5px;
+                    .read-more-block__text {
+                        word-wrap: none;
+                        margin-left: 5px;
+                        text-transform: uppercase;
+                    }
+                    img {
+                        height: 40px;
+                    }
+                }
                 .square,
                 .room-type {
                     font-weight: normal;
@@ -1704,6 +1715,7 @@
             font-size: 16px;
             line-height: 30px;
             color: $mc3;
+            max-width: 50%;
             @include to(768px) {
                 font-size: 12px;
                 line-height: 26px;
@@ -1711,6 +1723,10 @@
             @include to(475px) {
                 font-size: 14px;
                 line-height: 24px;
+            }
+            .list-item:first-child {
+                text-indent: 0;
+                padding-left: 20px;
             }
             .list-item a:hover {
                 transition: .2s;
@@ -1852,13 +1868,13 @@
         .map-popup {
             position: relative;
             max-width: 200px;
-            max-height: 100px;
+            max-height: 135px;
             background: $mc;
             display: flex;
-            padding: 20px 0;
+            padding: 20px 7.5px;
             &__text {
                 font-size: 14px;
-                line-height: 24px;
+                line-height: 1em;
                 color: #fff;
             }
             .close {

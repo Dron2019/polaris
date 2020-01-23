@@ -18,8 +18,8 @@ function initMap() {
     };
 
     var center = {
-        lat: 50.439572,
-        lng: 30.515734
+        lat: 50.515241,
+        lng: 30.468318
     }; /*{lat:50.406493, lng: 30.519515};*/
 
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -130,13 +130,21 @@ function initMap() {
 
     var markersData = [{
         content: '<div class="map-popup">' +
-            ' <img src="./assets/images/logo1.svg"> <div class="map-popup__text">Адреса: м. Київ, вул. Вулиця, 45</div>      </div>',
+            ' <img src="./assets/images/logo1.svg"> <div class="map-popup__text">м. Київ, Оболонський р-н Вул. Сім’ї Кульженків, 22</div>      </div>',
         position: {
-            lat: 50.439572,
-            lng: 30.515734
+            lat: 50.515241,
+            lng: 30.468318
         },
         type: 'main'
-    }]
+    }, {
+        content: '<div class="map-popup">' +
+            ' <img src="./assets/images/logo1.svg"><div class="map-popup__text">Відділ продажу: перехрестя вул. Полярна та вул. Сім’ї  Кульженків. м. Київ, Оболонський р-н, </div> </div>',
+        position: {
+            lat: 50.517735,
+            lng: 30.468779
+        },
+        type: 'main'
+    }, ]
 
     var activeInfoBubble;
 

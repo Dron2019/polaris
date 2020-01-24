@@ -37,14 +37,14 @@ block content
 		div(class="main-screen main-screen-content")
 			.developers-block 
 				span Девелопери <br> проекту:
-				a(href="https://perfect-group.com.ua" target="_blank")
+				a(href="https://perfect-group.com.ua" target="_blank" onclick="dataLayer.push({'event': 'perfect'})")
 					img(class="developer-logo" src="./assets/images/developers/perfect-logo.svg", alt="")
-				a(href="https://citex.com.ua" target="_blank")
+				a(href="https://citex.com.ua" target="_blank" onclick="dataLayer.push({'event': 'citex'})")
 					img(class="developer-logo" src="./assets/images/developers/citex-logo.svg", alt="")
 			.title-subtitle-wrap
 				.main-screen__subtitle POLARIS Home&Plaza
 				h1.main-screen__title  Зірковий рівень життя
-			.read-more-block.form-js 
+			.read-more-block.form-js(onclick="dataLayer.push({'event': 'clc_main'})")
 				img(class="read-more-block__icon" src="./assets/images/common/read-more-icon.svg", alt="read-more")
 				span.read-more-block__text ДІЗНАТИСЬ БІЛЬШЕ
 			.time-block
@@ -75,9 +75,9 @@ block content
 				img(src="./assets/images/common/birdy-black.svg")
 		.about-project-image
 			img(src="./assets/images/about/image1.png")
-		.about-project-more 
+		.about-project-more
 			span.about-project-more__question Хочете дізнатись більше?
-			span.about-project-more__subtext.form-js замовити дзвінок
+			span(onclick="dataLayer.push({'event': 'clc_about'})").about-project-more__subtext.form-js замовити дзвінок
 		.about-project-second-text 
 			.about-project-second-text__title Дружня та відкрита філософія POLARIS Home&Plaza –
 			.about-project-second-text__text  це новий клас житла, що підходить для усіх сучасних людей та здатен задовольнити максимум інтересів. 
@@ -261,7 +261,7 @@ block content
 									span.bold 38.4 m2
 								li.read-more-block.form-js.room-type
 									img(class="read-more-block__icon" src="./assets/images/common/read-more-icon.svg", alt="read-more")
-									span.read-more-block__text ДІЗНАТИСЬ БІЛЬШЕ
+									span(onclick="dataLayer.push({'event': 'clc_plan'})").read-more-block__text ДІЗНАТИСЬ БІЛЬШЕ
 						img(src="./assets/images/plans/flat.png")
 					.slide 
 						.about-project__counter 
@@ -387,7 +387,7 @@ block content
 					p Тут все буде вчасно. Вся необхідна інфраструктура розміститься на перших поверхах. Тож власники квартир не витрачатимуть дорогоцінний час на зайву дорогу або затори.
 				.read-more-block.form-js
 					img(class="read-more-block__icon" src="./assets/images/common/read-more-icon.svg", alt="read-more")
-					span(class="read-more-block__text read-more-block__text_dark") ДІЗНАТИСЬ БІЛЬШЕ
+					span(class="read-more-block__text read-more-block__text_dark" onclick="dataLayer.push({'event': 'clc_infrastructure'})") ДІЗНАТИСЬ БІЛЬШЕ
 			.block-img1
 				.block-title shoping
 				img(class="thumbnail" src="./assets/images/infrastructure/shop1.png")
@@ -433,7 +433,7 @@ block content
 					p Це те місце, де діти обовязково знайдуть альтернативу гаджетам і зможуть відпочити від цифрового та віртуального світу. Дійсно цікаві інноваційні локації обовязково сподобаються маленьким мешканцям. Особливу увагу буде приділено безпеці на території.  
 				.read-more-block.form-js
 					img(class="read-more-block__icon" src="./assets/images/common/read-more-icon.svg", alt="read-more")
-					span(class="read-more-block__text read-more-block__text_dark") ДІЗНАТИСЬ БІЛЬШЕ
+					span(class="read-more-block__text read-more-block__text_dark" onclick="dataLayer.push({'event': 'clc_infrastructure'})") ДІЗНАТИСЬ БІЛЬШЕ
 			.block-img1
 				.block-title lounge
 				img(class="thumbnail" src="./assets/images/infrastructure/park1.png")
@@ -472,9 +472,9 @@ block content
 			ul.address-list
 				li(class="list-item marker") м. Київ,  Оболонський р-н,  перехрестя вул. Полярна та вул. Сім’ї  Кульженків. 
 				li(class="list-item telephone") 
-					a(href="tel:0442992868") 044 299 28 68
+					a(href="tel:0442992868" onclick="dataLayer.push({'event': 'clc_phone'})") 044 299 28 68
 				li(class="list-item mail") 
-					a(href="mailto:polaris.homeplaza@gmail.com") polaris.homeplaza@gmail.com
+					a(href="mailto:polaris.homeplaza@gmail.com" onclick="dataLayer.push({'event': 'email'})") polaris.homeplaza@gmail.com
 				li(class="list-item scheldule") пн - пт, 10.00 - 20.00 
 				li(class="list-item") сб - нд, 10.00 - 18.00
 		.complex-address
@@ -484,11 +484,11 @@ block content
 			.complex-address__tel
 				.title Телефон
 				.description 
-					a(href="tel:0442992868") 044 299 28 68
+					a(href="tel:0442992868" onclick="dataLayer.push({'event': 'clc_phone'})") 044 299 28 68
 			.complex-address__email
 				.title E-mail
 				.description 
-					a(href="mailto:polaris.homeplaza@gmail.com") polaris.homeplaza@gmail.com
+					a(href="mailto:polaris.homeplaza@gmail.com" onclick="dataLayer.push({'event': 'email'})") polaris.homeplaza@gmail.com
 	.map#map
 	div(class="map-popup" style="display:none")
 		img(src="./assets/images/logo1.svg")

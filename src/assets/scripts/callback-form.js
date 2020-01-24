@@ -78,6 +78,16 @@ readMoreList.forEach(e => {
 });
 
 let formReset = (form) => {
+    if (form.id == 'tel-form') {
+        dataLayer.push({
+            'event': 'reguest'
+        }) /**GTM Click observe */
+    } else if (form.id == 'main-form') {
+        dataLayer.push({
+            'event': 'reguest2'
+        }) /**GTM Click observe */
+    }
+
     form.querySelectorAll('input,textarea').forEach(item => {
         item.innerHTML = '';
         item.value = '';

@@ -1,22 +1,22 @@
 div(class="footer-block")
 	ul.menu-list.footer-menu.container
 			li.menu-list__item 
-				a(href="#") ПРО ПРОЕКТ
+				a(href="#about") ПРО ПРОЕКТ
 			li.menu-list__item 
-				a(href="#") переваги
+				a(href="#advantages") переваги
 			li.menu-list__item 
-				a(href="#") місцерозташування
+				a(href="#location") місцерозташування
 			li.menu-list__item 
-				a(href="#") ПЛАНУВАННЯ
+				a(href="#plans") ПЛАНУВАННЯ
 			li.menu-list__item 
-				a(href="#") інфраструктура
+				a(href="#infrastructure") інфраструктура
 			li.menu-list__item 
-				a(href="#") контакти
+				a(href="#contacts") контакти
 			li.menu-list__item.viber
-				a(href="viber://add?number=#")
+				a(href="viber://add?number=#" onclick="dataLayer.push({'event': 'viber'})")
 					img(src="./assets/images/contacts/viber.svg")
 			li.menu-list__item.telegram
-				a(href="tg://resolve?domain=#")
+				a(href="tg://resolve?domain=#" onclick="dataLayer.push({'event': 'telegram'})")
 					img(src="./assets/images/contacts/telegram.svg")
 	.footer__copy 
 		p © 2008-2019 Polaris. Home&Plaza. Всі права захищені. 
